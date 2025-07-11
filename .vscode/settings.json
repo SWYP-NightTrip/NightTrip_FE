@@ -1,0 +1,20 @@
+{
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "path-intellisense.mappings": {
+    "@shared": "${workspaceRoot}/src/shared",
+    "@entities": "${workspaceRoot}/src/entities",
+    "@features": "${workspaceRoot}/src/features",
+    "@widgets": "${workspaceRoot}/src/widgets",
+    "@processes": "${workspaceRoot}/src/processes",
+    "@app": "${workspaceRoot}/src/app"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "typescript", "typescriptreact"],
+  "prettier.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
