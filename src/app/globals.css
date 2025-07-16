@@ -193,6 +193,12 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+@layer components {
+  .nt-gradient-primary-to-secondary {
+    @apply bg-gradient-to-b from-nt-primary to-nt-secondary;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
