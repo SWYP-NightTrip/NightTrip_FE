@@ -24,11 +24,11 @@
   --color-nt-secondary-100: var(--nt-secondary-100);
 
   /* accent */
-  --color-nt-accent: var(--nt-accent-500);
-  --color-nt-accent-300: var(--nt-accent-300);
-  --color-nt-accent-100: var(--nt-accent-100);
-  --color-nt-accent-blue-1: var(--nt-accent-blue-1);
-  --color-nt-accent-blue-2: var(--nt-accent-blue-2);
+  --color-nt-accent-yellow-500: var(--nt-accent-yellow-500);
+  --color-nt-accent-yellow-300: var(--nt-accent-yellow-300);
+  --color-nt-accent-yellow-100: var(--nt-accent-yellow-100);
+  --color-nt-accent-blue-500: var(--nt-accent-blue-500);
+  --color-nt-accent-blue-600: var(--nt-accent-blue-600);
 
   /* neutral */
   --color-nt-neutral-100: var(--nt-neutral-100);
@@ -101,12 +101,12 @@
   --nt-secondary-200: #fbe2f4;
   --nt-secondary-100: #fdf1f9;
 
-  /* Accent Colors  - main: 500 */
-  --nt-accent-500: #ffd469;
-  --nt-accent-300: #fff5a5;
-  --nt-accent-100: #fffe61;
-  --nt-accent-blue-1: #4a90e2;
-  --nt-accent-blue-2: #3b83f6;
+  /* Accent Colors */
+  --nt-accent-yellow-500: #ffd469;
+  --nt-accent-yellow-300: #fff5a5;
+  --nt-accent-yellow-100: #fffe61;
+  --nt-accent-blue-500: #4a90e2;
+  --nt-accent-blue-600: #3b83f6;
 
   /* Semantic Colors */
   --nt-error: #f14668;
@@ -114,14 +114,14 @@
   --nt-success: #3cd882;
 
   /* Neutral Colors */
-  --nt-neutral-100: #faf9ff;
-  --nt-neutral-200: #f4f3fa;
-  --nt-neutral-300: #dad9e3;
-  --nt-neutral-400: #b5b4ba;
-  --nt-neutral-500: #dedede;
+  --nt-neutral-50: #faf9ff;
+  --nt-neutral-100: #f4f3fa;
+  --nt-neutral-200: #dad9e3;
+  --nt-neutral-250: #dedede;
+  --nt-neutral-300: #b5b4ba;
+  --nt-neutral-400: #5c5c5c;
   --nt-neutral-black: #000000;
-  --nt-neutral-black-light: #2c2c2c;
-  --nt-neutral-black-lighter: #5c5c5c;
+  --nt-neutral-dark-gray: #2c2c2c;
   --nt-neutral-white: #ffffff;
 
   /*? Shadcn 관련 */
