@@ -1,9 +1,49 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /*? night-trip's design system */
+  /* primary */
+  --color-nt-primary: var(--nt-primary-500);
+  --color-nt-rimary-800: var(--nt-primary-800);
+  --color-nt-primary-600: var(--nt-primary-600);
+  --color-nt-primary-400: var(--nt-primary-400);
+  --color-nt-primary-200: var(--nt-primary-200);
+  --color-nt-primary-100: var(--nt-primary-100);
+
+  /* secondary */
+  --color-nt-secondary: var(--nt-secondary-400);
+  --color-nt-secondary-600: var(--nt-secondary-600);
+  --color-nt-secondary-500: var(--nt-secondary-500);
+  --color-nt-secondary-200: var(--nt-secondary-200);
+  --color-nt-secondary-100: var(--nt-secondary-100);
+
+  /* accent */
+  --color-nt-accent: var(--nt-accent-500);
+  --color-nt-accent-300: var(--nt-accent-300);
+  --color-nt-accent-100: var(--nt-accent-100);
+  --color-nt-accent-blue-1: var(--nt-accent-blue-1);
+  --color-nt-accent-blue-2: var(--nt-accent-blue-2);
+
+  /* neutral */
+  --color-nt-neutral-100: var(--nt-neutral-100);
+  --color-nt-neutral-200: var(--nt-neutral-200);
+  --color-nt-neutral-300: var(--nt-neutral-300);
+  --color-nt-neutral-400: var(--nt-neutral-400);
+  --color-nt-neutral-500: var(--nt-neutral-500);
+  --color-nt-neutral-black: var(--nt-neutral-black);
+  --color-nt-neutral-black-light: var(--nt-neutral-black-light);
+  --color-nt-neutral-black-lighter: var(--nt-neutral-black-lighter);
+  --color-nt-neutral-white: var(--nt-neutral-white);
+
+  /* 경고 및 성공 색상 추가 */
+  --color-error: var(--nt-error);
+  --color-warn: var(--nt-warn);
+  --color-success: var(--nt-success);
+
+  /*? Shadcn 관련 */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -44,6 +84,46 @@
 }
 
 :root {
+  /*? night-trip's design system */
+  /* Primary Colors - main: 500 */
+  --nt-primary-800: #2f2e57;
+  --nt-primary-600: #5e5bae;
+  --nt-primary-500: #7672da;
+  --nt-primary-400: #918ee1;
+  --nt-primary-200: #cc87f0;
+  --nt-primary-100: #e4e3f8;
+
+  /* Secondary Colors - main: 400 */
+  --nt-secondary-600: #c592b6;
+  --nt-secondary-500: #f6b7e3;
+  --nt-secondary-400: #fad4ee;
+  --nt-secondary-200: #fbe2f4;
+  --nt-secondary-100: #fdf1f9;
+
+  /* Accent Colors  - main: 500 */
+  --nt-accent-500: #ffd469;
+  --nt-accent-300: #fff5a5;
+  --nt-accent-100: #fffe61;
+  --nt-accent-blue-1: #4a90e2;
+  --nt-accent-blue-2: #3b83f6;
+
+  /* Semantic Colors */
+  --nt-error: #f14668;
+  --nt-warn: #ffb700;
+  --nt-success: #3cd882;
+
+  /* Neutral Colors */
+  --nt-neutral-100: #faf9ff;
+  --nt-neutral-200: #f4f3fa;
+  --nt-neutral-300: #dad9e3;
+  --nt-neutral-400: #b5b4ba;
+  --nt-neutral-500: #dedede;
+  --nt-neutral-black: #000000;
+  --nt-neutral-black-light: #2c2c2c;
+  --nt-neutral-black-lighter: #5c5c5c;
+  --nt-neutral-white: #ffffff;
+
+  /*? Shadcn 관련 */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -117,6 +197,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-nt-neutral-white text-nt-neutral-black;
   }
 }
