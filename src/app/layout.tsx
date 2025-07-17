@@ -16,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${pretendard.variable} font-pretendard`}>
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <main className="mobile-container">
+          <QueryProvider>{children}</QueryProvider>
+        </main>
       </body>
     </html>
   );
