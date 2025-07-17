@@ -8,6 +8,11 @@
   /* font */
   --font-pretendard: var(--font-pretendard);
 
+  /* layout */
+  --radius-nt-radius: var(--nt-radius);
+  --height-nt-btn-h: var(--nt-btn-h);
+  --spacing-nt-m: var(--nt-m);
+
   /* primary */
   --color-nt-primary: var(--nt-primary-500);
   --color-nt-primary-800: var(--nt-primary-800);
@@ -86,6 +91,11 @@
 
 :root {
   /*? night-trip's design system */
+  /* layout */
+  --nt-radius: 0.5rem;
+  --nt-btn-h: 46px;
+  --nt-m: 1rem;
+
   /* Primary Colors - main: 500 */
   --nt-primary-800: #2f2e57;
   --nt-primary-600: #5e5bae;
@@ -230,6 +240,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-nt-neutral-white text-nt-neutral-black font-pretendard;
+    @apply bg-nt-neutral-white text-nt-neutral-black;
   }
 }
