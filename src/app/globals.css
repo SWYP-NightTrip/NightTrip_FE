@@ -201,7 +201,7 @@
     @apply mx-auto max-w-[375px] w-full;
   }
   .header1 {
-    @apply font-pretendard text-2t-semibold leading-8;
+    @apply font-pretendard text-2xl font-semibold leading-8;
   }
 
   .header2 {
