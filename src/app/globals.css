@@ -204,6 +204,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-nt-neutral-white text-nt-neutral-black font-pretendard;
+    @apply bg-nt-neutral-white text-nt-neutral-black;
   }
 }
