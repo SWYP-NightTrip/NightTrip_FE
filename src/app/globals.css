@@ -197,6 +197,32 @@
   .nt-gradient-primary-to-secondary {
     @apply bg-gradient-to-b from-nt-primary to-nt-secondary;
   }
+  .mobile-container {
+    @apply mx-auto max-w-[375px] w-full;
+  }
+  .header1 {
+    @apply text-2xl font-semibold leading-8;
+  }
+
+  .header2 {
+    @apply text-xl font-semibold leading-7;
+  }
+
+  .header3 {
+    @apply text-lg font-semibold leading-[26px];
+  }
+
+  .body1 {
+    @apply text-base font-normal leading-6;
+  }
+
+  .body2 {
+    @apply text-sm font-normal leading-5;
+  }
+
+  .body3 {
+    @apply text-xs font-normal leading-4;
+  }
 }
 
 @layer base {
