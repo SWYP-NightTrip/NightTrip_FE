@@ -200,6 +200,29 @@
   .mobile-container {
     @apply mx-auto max-w-[375px] w-full;
   }
+  .header1 {
+    @apply font-pretendard text-2t-semibold leading-8;
+  }
+
+  .header2 {
+    @apply font-pretendard text-xl font-semibold leading-7;
+  }
+
+  .header3 {
+    @apply font-pretendard text-lg font-semibold leading-[26px];
+  }
+
+  .body1 {
+    @apply font-pretendard text-base font-normal leading-6;
+  }
+
+  .body2 {
+    @apply font-pretendard text-sm font-normal leading-5;
+  }
+
+  .body3 {
+    @apply font-pretendard text-xs font-normal leading-4;
+  }
 }
 
 @layer base {
