@@ -197,6 +197,9 @@
   .nt-gradient-primary-to-secondary {
     @apply bg-gradient-to-b from-nt-primary to-nt-secondary;
   }
+  .mobile-container {
+    @apply mx-auto max-w-[375px] w-full;
+  }
 }
 
 @layer base {

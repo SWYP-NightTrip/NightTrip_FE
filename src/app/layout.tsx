@@ -16,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={pretendard.variable}>
-        <QueryProvider>{children}</QueryProvider>
+        <main className="mobile-container">
+          <QueryProvider>{children}</QueryProvider>
+        </main>
       </body>
     </html>
   );
