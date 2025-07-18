@@ -20,6 +20,7 @@
   --color-nt-primary-400: var(--nt-primary-400);
   --color-nt-primary-200: var(--nt-primary-200);
   --color-nt-primary-100: var(--nt-primary-100);
+  --color-nt-primary-50: var(--nt-primary-50);
 
   /* secondary */
   --color-nt-secondary: var(--nt-secondary-400);
@@ -103,6 +104,7 @@
   --nt-primary-400: #918ee1;
   --nt-primary-200: #cc87f0;
   --nt-primary-100: #e4e3f8;
+  --nt-primary-50: #efeefb;
 
   /* Secondary Colors - main: 400 */
   --nt-secondary-600: #c592b6;

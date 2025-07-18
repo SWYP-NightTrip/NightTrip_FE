@@ -19,7 +19,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const iconBtn = variant === 'round' || variant === 'square';
-  const iconBtnStyle = 'bg-nt-primary-100 aspect-square';
+  const iconBtnStyle = 'bg-nt-primary-50 aspect-square';
 
   const baseStyles = cn(
     'flex p-0 bg-nt-primary text-nt-neutral-white hover:bg-nt-primary-400 cursor-pointer rounded-nt-radius',
@@ -29,9 +29,9 @@ export default function Button({
     iconBtn && iconBtnStyle,
   );
 
-const getVariantStyles = () => {
-  if (variant === 'round') return 'rounded-full'; // 버튼-원형
-};
+  const getVariantStyles = () => {
+    if (variant === 'round') return 'rounded-full'; // 버튼-원형
+  };
 
   const getSizeStyles = () => {
     switch (size) {
