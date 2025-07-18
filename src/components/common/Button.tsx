@@ -22,23 +22,16 @@ export default function Button({
   const iconBtnStyle = 'bg-nt-primary-100 aspect-square';
 
   const baseStyles = cn(
-    'flex bg-nt-primary text-nt-neutral-white hover:bg-nt-primary-400 cursor-pointer',
+    'flex bg-nt-primary text-nt-neutral-white hover:bg-nt-primary-400 cursor-pointer rounded-nt-radius',
     'active:bg-nt-primary-600 disabled:opacity-100 disabled:bg-nt-neutral-200 disabled:text-nt-neutral-400',
     'focus-visible:border focus-visible:border-nt-primary focus-visible:ring-0 focus-visible:text-nt-primary focus-visible:bg-nt-neutral-white',
     isActive && !disabled && 'bg-nt-primary-100 text-nt-primary-600 border border-nt-primary-600',
     iconBtn && iconBtnStyle,
   );
 
-  const getVariantStyles = () => {
-    switch (variant) {
-      case 'default': // 기본 버튼 + 소셜 로그인(박스형)
-        return 'rounded-nt-radius';
-      case 'round': // 버튼-원형
-        return 'rounded-full';
-      case 'square': // 버튼-사각형
-        return 'rounded-none';
-    }
-  };
+const getVariantStyles = () => {
+  if (variant === 'round') return 'rounded-full'; // 버튼-원형
+};
 
   const getSizeStyles = () => {
     switch (size) {
