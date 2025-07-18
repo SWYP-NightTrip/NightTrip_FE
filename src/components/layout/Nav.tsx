@@ -1,13 +1,9 @@
 import { Children } from 'react';
 
-import type { ComponentProps, ElementType } from 'react';
-
 import { cn } from '@/lib/shadcn/utils';
 
-export type PolymorphicProps<T extends ElementType, P> = {
-  as?: T;
-} & P &
-  ComponentProps<T>;
+import type { ElementType } from 'react';
+import type { PolymorphicProps } from '@/types/components';
 
 const GRID_CLASSES = [
   'grid-cols-1',

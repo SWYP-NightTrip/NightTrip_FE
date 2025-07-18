@@ -2,14 +2,14 @@ import { cn } from '@/lib/shadcn/utils';
 
 import Nav from '@/components/layout/Nav';
 
-import type { ComponentProps } from 'react';
+import type { TagProps } from '@/types/components';
 
 type TopNavProps = {
   children: React.ReactNode;
   className?: string;
-} & ComponentProps<'header'>;
+};
 
-export default function TopNav({ children, className, ...rest }: TopNavProps) {
+export default function TopNav({ children, className, ...rest }: TagProps<'header', TopNavProps>) {
   return (
     <Nav as="header" className={cn('w-full', className)} {...rest}>
       {children}
