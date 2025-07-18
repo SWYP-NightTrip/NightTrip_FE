@@ -33,6 +33,7 @@ export default function Nav<T extends ElementType = 'nav'>({
   tag,
   children,
   className,
+  ...rest
 }: PolymorphicProps<T, NavProps>) {
   const Comp = tag ?? 'nav';
 
@@ -43,5 +44,9 @@ export default function Nav<T extends ElementType = 'nav'>({
     throw new Error('TopNav 컴포넌트는 최대 12개의 자식 요소만 허용합니다.');
   }
 
-  return <Comp className={cn(`grid ${gridClass} items-center`, className)}>{children}</Comp>;
+  return (
+    <Comp className={cn(`grid ${gridClass} items-center`, className)} {...rest}>
+      {children}
+    </Comp>
+  );
 }
