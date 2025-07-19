@@ -38,6 +38,7 @@
   /* neutral */
   --color-nt-neutral-100: var(--nt-neutral-100);
   --color-nt-neutral-200: var(--nt-neutral-200);
+  --color-nt-neutral-250: var(--nt-neutral-250);
   --color-nt-neutral-300: var(--nt-neutral-300);
   --color-nt-neutral-400: var(--nt-neutral-400);
   --color-nt-neutral-500: var(--nt-neutral-500);
@@ -205,7 +206,7 @@
 
 @layer components {
   .nt-gradient-primary-to-secondary {
-    @apply bg-gradient-to-b from-nt-primary to-nt-secondary;
+    @apply bg-gradient-to-r from-nt-primary to-nt-secondary;
   }
   .mobile-container {
     @apply mx-auto max-w-[375px] w-full;
