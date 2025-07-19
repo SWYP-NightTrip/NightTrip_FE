@@ -11,7 +11,7 @@ type TopNavProps = {
 
 export default function TopNav({ children, className, ...rest }: TagProps<'header', TopNavProps>) {
   return (
-    <Nav as="header" className={cn('w-full', className)} {...rest}>
+    <Nav as="header" className={cn('w-full h-[56px]', className)} {...rest}>
       {children}
     </Nav>
   );

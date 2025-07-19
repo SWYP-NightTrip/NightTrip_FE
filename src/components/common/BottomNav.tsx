@@ -15,7 +15,11 @@ export default function BottomNav({
   ...rest
 }: TagProps<'footer', BottomNavProps>) {
   return (
-    <Nav as="footer" className={cn('fixed bottom-0 left-0 z-100 w-full', className)} {...rest}>
+    <Nav
+      as="footer"
+      className={cn('fixed bottom-0 left-0 z-100 w-full h-[64px]', className)}
+      {...rest}
+    >
       {children}
     </Nav>
   );
