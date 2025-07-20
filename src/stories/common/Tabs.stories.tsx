@@ -6,7 +6,7 @@ interface TabsStoryProps extends React.ComponentProps<typeof Tabs> {
 }
 
 const meta = {
-  title: 'Components/Tabs',
+  title: 'design-system/Tabs',
   component: Tabs,
   parameters: {
     layout: 'centered',
