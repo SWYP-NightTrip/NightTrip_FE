@@ -4,7 +4,7 @@ import Image from 'next/image';
 import icon from '../../public/images/ex_icon.png';
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'design-system/Button',
   component: Button,
   parameters: {
     layout: 'centered',
