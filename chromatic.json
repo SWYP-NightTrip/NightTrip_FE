@@ -1,0 +1,8 @@
+{
+  "buildScriptName": "build-storybook",
+  "exitZeroOnChanges": true,
+  "storybookBuildDir": "storybook-static",
+  "autoAcceptChanges": false,
+  "onlyChanged": true,
+  "untraced": ["node_modules/**", ".git/**", "storybook-static/**"]
+}
