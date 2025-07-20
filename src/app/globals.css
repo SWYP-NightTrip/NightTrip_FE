@@ -20,6 +20,7 @@
   --color-nt-primary-400: var(--nt-primary-400);
   --color-nt-primary-200: var(--nt-primary-200);
   --color-nt-primary-100: var(--nt-primary-100);
+  --color-nt-primary-50: var(--nt-primary-50);
 
   /* secondary */
   --color-nt-secondary: var(--nt-secondary-400);
@@ -36,15 +37,14 @@
   --color-nt-accent-blue-600: var(--nt-accent-blue-600);
 
   /* neutral */
+  --color-nt-neutral-50: var(--nt-neutral-50);
   --color-nt-neutral-100: var(--nt-neutral-100);
   --color-nt-neutral-200: var(--nt-neutral-200);
   --color-nt-neutral-250: var(--nt-neutral-250);
   --color-nt-neutral-300: var(--nt-neutral-300);
   --color-nt-neutral-400: var(--nt-neutral-400);
-  --color-nt-neutral-500: var(--nt-neutral-500);
   --color-nt-neutral-black: var(--nt-neutral-black);
-  --color-nt-neutral-black-light: var(--nt-neutral-black-light);
-  --color-nt-neutral-black-lighter: var(--nt-neutral-black-lighter);
+  --color-nt-neutral-dark-gray: var(--nt-neutral-dark-gray);
   --color-nt-neutral-white: var(--nt-neutral-white);
 
   /* 경고 및 성공 색상 추가 */
@@ -104,6 +104,7 @@
   --nt-primary-400: #918ee1;
   --nt-primary-200: #cc87f0;
   --nt-primary-100: #e4e3f8;
+  --nt-primary-50: #efeefb;
 
   /* Secondary Colors - main: 400 */
   --nt-secondary-600: #c592b6;
