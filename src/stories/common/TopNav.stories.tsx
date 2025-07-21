@@ -2,7 +2,7 @@ import TopNav from '@/components/common/TopNav';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta: Meta<typeof TopNav> = {
-  title: 'Components/TopNav',
+  title: 'design-system/TopNav',
   component: TopNav,
   parameters: {
     layout: 'centered',

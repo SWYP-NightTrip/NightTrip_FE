@@ -3,7 +3,7 @@ import BottomNav from '@/components/common/BottomNav';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta: Meta<typeof BottomNav> = {
-  title: 'Components/BottomNav',
+  title: 'design-system/BottomNav',
   component: BottomNav,
   parameters: {
     layout: 'fullscreen',
