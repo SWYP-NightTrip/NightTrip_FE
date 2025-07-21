@@ -9,6 +9,7 @@ export default function Input({ state = 'default', className, type, ...props }: 
   const baseStyles = cn(
     'border border-nt-neutral-250 rounded-nt-radius shadow-none px-[16px] py-[13px] h-[46px]',
     'focus-visible:border-nt-primary focus-visible:ring-transparent focus-visible:ring-0',
+    'disabled:border-nt-neutral-400 disabled:bg-nt-neutral-200 disabled:placeholder-nt-neutral-400 disabled:opacity-100',
     'placeholder:text-nt-neutral-250',
   );
 
