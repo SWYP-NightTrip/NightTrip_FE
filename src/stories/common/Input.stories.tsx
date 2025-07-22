@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import Input from '@/components/common/Input';
+import Icon from '@/components/common/Icon';
+import { X, Check, CircleAlert } from 'lucide-react';
+import { useState } from 'react';
+import { cn } from '@/lib/shadcn/utils';
 
 const meta: Meta<typeof Input> = {
   title: 'design-system/Input',
@@ -82,4 +86,69 @@ export const ShapeVariant: Story = {
       <Input className="rounded-none" placeholder="rounded-none" />
     </div>
   ),
+};
+
+export const StatesWithIcon: Story = {
+  render: () => {
+    const [inputValue, setInputValue] = useState('');
+    const [inputState, setInputState] = useState<'default' | 'success' | 'error'>('default');
+
+    // 상태 변경을 위한 버튼 클릭 핸들러
+    const handleStateChange = (state: 'default' | 'success' | 'error') => {
+      setInputState(state);
+    };
+
+    return (
+      <div className="flex flex-col gap-4">
+        <div className="flex gap-2">
+          <button
+            onClick={() => handleStateChange('default')}
+            className={cn('px-4 py-2 border rounded', inputState === 'default' && 'bg-gray-100')}
+          >
+            Default
+          </button>
+          <button
+            onClick={() => handleStateChange('success')}
+            className={cn('px-4 py-2 border rounded', inputState === 'success' && 'bg-gray-100')}
+          >
+            Success
+          </button>
+          <button
+            onClick={() => handleStateChange('error')}
+            className={cn('px-4 py-2 border rounded', inputState === 'error' && 'bg-gray-100')}
+          >
+            Error
+          </button>
+        </div>
+
+        <div className="relative">
+          <Input
+            placeholder="텍스트를 입력하세요."
+            className={cn(
+              'pr-[56px]',
+              inputState === 'success' && 'border-nt-success focus-visible:border-nt-success',
+              inputState === 'error' && 'border-nt-error focus-visible:border-nt-error',
+            )}
+            value={inputValue}
+            onChange={e => setInputValue(e.target.value)}
+          />
+          {inputValue && inputState === 'default' && (
+            <Icon className="cursor-pointer text-nt-neutral-400" onClick={() => setInputValue('')}>
+              <X />
+            </Icon>
+          )}
+          {inputState === 'success' && (
+            <Icon>
+              <Check className="text-nt-success" />
+            </Icon>
+          )}
+          {inputState === 'error' && (
+            <Icon>
+              <CircleAlert className="text-nt-error" />
+            </Icon>
+          )}
+        </div>
+      </div>
+    );
+  },
 };
