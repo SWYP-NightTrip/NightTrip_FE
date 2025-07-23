@@ -12,7 +12,7 @@ export default function RecommendedViewSpot() {
       }}
       className="w-full"
     >
-      <CarouselContent className="flex gap-[14px]">
+      <CarouselContent className="flex gap-[14px] -ml-0">
         {recommendedSpots.map(spot => (
           <CarouselItem key={spot.id} className="basis-auto p-0">
             <TripCard tripSpot={spot} />
