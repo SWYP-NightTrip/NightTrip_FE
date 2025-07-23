@@ -61,15 +61,14 @@ export function MainPage() {
           더보기
         </Link>
       </div>
-
       <div className="pl-4 pt-1.5 pb-2.5">
         <RecommendedViewSpot />
       </div>
-
       <div className="mt-2.5 px-4 py-2.5">
         <Button className="w-full">더 많은 추천지 보기</Button>
       </div>
       <Footer />
+      <div className="w-full h-[100px]"></div> {/* Footer 높이만큼 빈 공간 추가 */}
     </div>
   );
 }
