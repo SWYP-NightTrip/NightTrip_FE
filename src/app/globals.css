@@ -210,7 +210,7 @@
     @apply bg-gradient-to-r from-nt-primary to-nt-secondary;
   }
   .mobile-container {
-    @apply mx-auto max-w-[375px] w-full;
+    @apply mx-auto max-w-[375px] w-full h-full;
   }
   .header1 {
     @apply text-2xl font-semibold leading-8;

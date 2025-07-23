@@ -44,11 +44,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${pretendard.variable} font-pretendard`}>
+    <html lang="ko" className={`${pretendard.variable} font-pretendard h-full`}>
       <head>
         <script defer src="https://cdn.swygbro.com/public/widget/swyg-widget.js"></script>
       </head>
-      <body>
+      <body className='h-full'>
         <main className="mobile-container">
           <QueryProvider>{children}</QueryProvider>
         </main>
