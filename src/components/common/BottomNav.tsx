@@ -17,7 +17,7 @@ export default function BottomNav({
   return (
     <Nav
       as="footer"
-      className={cn('fixed bottom-0 left-0 z-100 w-full h-[64px]', className)}
+      className={cn('fixed bottom-0 z-50 h-[64px] bg-white border-gray-200', className)}
       {...rest}
     >
       {children}
