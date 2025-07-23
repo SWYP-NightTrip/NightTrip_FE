@@ -1,25 +1,27 @@
 import { cn } from '@/lib/shadcn/utils';
 import LoginButton from '@/pages/LoginPage/ui/LoginButton';
 import Link from 'next/link';
+import Rabbit from '@/icons/rabbit.svg';
+import LoginLogo from '@/icons/login-logo.svg';
+import Header from '@/pages/LoginPage/ui/header';
 
 const socialLoginBtnClass = 'rounded-full w-[50px] h-[50px] border border-nt-neutral-250';
 
 export default function LoginPage() {
   return (
     <div className="flex flex-col gap-4 items-center">
-      <div className="w-full h-[56px] bg-amber-200" />
+      <Header />
 
-      <div className="flex flex-col w-full p-2">
+      <div className="flex flex-col w-full p-3">
         <div className="flex flex-col w-full gap-4 items-center">
           <p className="header2">밤에 떠나는 여행</p>
-          <div className="w-[240px] h-[46px] bg-amber-200" />
+          <LoginLogo/>
         </div>
-        <div className="bg-amber-200" />
       </div>
 
-      <div className="flex bg-amber-200 w-[110px] h-[106px] m-4" />
+      <Rabbit/>
 
-      <div className="flex m-2">
+      <div className="flex mb-2 mt-7">
         <div className="border-[0.5px] w-[80px] my-auto border-nt-neutral-250" />
         <span className="px-3 text-sm font-medium">3초만에 로그인하기</span>
         <div className="border-[0.5px] w-[80px] my-auto border-nt-neutral-250" />
