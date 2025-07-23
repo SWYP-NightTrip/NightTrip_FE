@@ -27,7 +27,7 @@ export function MainPage() {
           <p className="text-[#2C2C2C] text-sm font-normal leading-5 tracking-[0.014px] overflow-hidden text-ellipsis whitespace-nowrap">
             여행지, 숙소, 맛집, 관광지를 검색해보세요!
           </p>
-          <button className="px-[14px] py-[10px] rounded-[100px] bg-[#E0DEF9] cursor-pointer">
+          <button className="h-[26px] w-[44px] rounded-[100px] bg-[#E0DEF9] cursor-pointer flex items-center justify-center">
             <SearchIcon />
           </button>
         </Link>
