@@ -41,7 +41,10 @@ export function MainPage() {
       </div>
       <div className="px-4 h-[42px] flex items-center justify-between">
         <h3 className="font-semibold text-nt-neutral-black leading-6">별이 잘 보이는 캠핑장</h3>
-        <Link className="text-sm text-[#5B58C2]" href="/photo-spots">
+        <Link
+          className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
+          href="/photo-spots"
+        >
           더보기
         </Link>
       </div>
@@ -50,7 +53,10 @@ export function MainPage() {
       </div>
       <div className="px-4 h-[42px] flex items-center justify-between">
         <h3 className="font-semibold text-nt-neutral-black leading-6">야경 포토스팟</h3>
-        <Link className="text-sm text-[#5B58C2]" href="/photo-spots">
+        <Link
+          className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
+          href="/photo-spots"
+        >
           더보기
         </Link>
       </div>
