@@ -1,7 +1,7 @@
 import TopNav from '@/components/common/TopNav';
 
-import LogoIcon from '../../../../public/icons/logo.svg';
-import AddTravelIcon from '../../../../public/icons/add-travel.svg';
+import LogoIcon from '@/icons/logo.svg';
+import AddTravelIcon from '@/icons/add-travel.svg';
 
 export default function Header() {
   return (

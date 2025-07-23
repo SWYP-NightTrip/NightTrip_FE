@@ -1,6 +1,6 @@
 import PhotoCard from '@/components/common/PhotoCard';
 
-import StarIcon from '../../../../public/icons/star.svg';
+import StarIcon from '@/icons/star.svg';
 
 interface TripCardProps {
   tripSpot: {

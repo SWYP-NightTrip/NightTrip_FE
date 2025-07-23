@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import SearchIcon from '../../../public/icons/search.svg';
+import SearchIcon from '@/icons/search.svg';
 
 import Header from './ui/header';
 import Footer from './ui/footer';

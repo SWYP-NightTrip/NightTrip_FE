@@ -1,4 +1,4 @@
-import icon from '../../../../../public/images/ex_icon.png';
+import icon from '@/images/ex_icon.png';
 
 import type { StaticImageData } from 'next/image';
 

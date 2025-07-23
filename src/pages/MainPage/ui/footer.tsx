@@ -2,10 +2,10 @@
 
 import BottomNav from '@/components/common/BottomNav';
 
-import HomeIcon from '../../../../public/icons/home.svg';
-import ScheduleIcon from '../../../../public/icons/schedule.svg';
-import PlanIcon from '../../../../public/icons/plan.svg';
-import MyIcon from '../../../../public/icons/my.svg';
+import HomeIcon from '@/icons/home.svg';
+import ScheduleIcon from '@/icons/schedule.svg';
+import PlanIcon from '@/icons/plan.svg';
+import MyIcon from '@/icons/my.svg';
 
 import Link from 'next/link';
 
