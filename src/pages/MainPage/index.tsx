@@ -10,6 +10,7 @@ import Footer from './ui/footer';
 import RecommendedCampingSpot from './features/RecommendedCampingSpot';
 import PartnershipServiceCarousel from './features/PartnershipServiceCarousel';
 import RecommendedViewSpot from './features/RecommendedViewSpot';
+import Button from '@/components/common/Button';
 
 export function MainPage() {
   return (
@@ -61,8 +62,12 @@ export function MainPage() {
         </Link>
       </div>
 
-      <div className="pl-4">
+      <div className="pl-4 pt-1.5 pb-2.5">
         <RecommendedViewSpot />
+      </div>
+
+      <div className="mt-2.5 px-4 py-2.5">
+        <Button className="w-full">더 많은 추천지 보기</Button>
       </div>
       <Footer />
     </div>
