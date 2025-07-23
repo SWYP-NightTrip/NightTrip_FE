@@ -1,3 +1,5 @@
+'use client';
+
 import BottomNav from '@/components/common/BottomNav';
 
 import HomeIcon from '../../../../public/icons/home.svg';
@@ -5,21 +7,25 @@ import ScheduleIcon from '../../../../public/icons/schedule.svg';
 import PlanIcon from '../../../../public/icons/plan.svg';
 import MyIcon from '../../../../public/icons/my.svg';
 
+import Link from 'next/link';
+
 export default function Footer() {
+  // 활성화 기능은 아직 아이콘이 없어서 만들지 못함
+
   return (
     <BottomNav className="w-[375px] bg-[#FAF9FF] rounded-t-xl">
-      <div className="flex flex-col items-center w-full">
+      <Link href="/" className="flex flex-col items-center w-full">
         <HomeIcon />
-      </div>
-      <div className="flex flex-col items-center">
+      </Link>
+      <Link href="/schedule" className="flex flex-col items-center">
         <ScheduleIcon />
-      </div>
-      <div className="flex flex-col items-center">
+      </Link>
+      <Link href="/plan" className="flex flex-col items-center">
         <PlanIcon />
-      </div>
-      <div className="flex flex-col items-center">
+      </Link>
+      <Link href="/my" className="flex flex-col items-center">
         <MyIcon />
-      </div>
+      </Link>
     </BottomNav>
   );
 }
