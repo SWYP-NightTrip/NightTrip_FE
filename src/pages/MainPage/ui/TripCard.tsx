@@ -16,7 +16,7 @@ interface TripCardProps {
 export default function TripCard({ tripSpot }: TripCardProps) {
   return (
     <>
-      <div className="relative">
+      <div className="relative w-[150px] h-[140px]">
         <PhotoCard.Photo
           src={tripSpot.imgUrl}
           alt={`${tripSpot.name} 이미지`}
