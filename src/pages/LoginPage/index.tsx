@@ -6,7 +6,7 @@ const socialLoginBtnClass = 'rounded-full w-[50px] h-[50px] border border-nt-neu
 
 export default function LoginPage() {
   return (
-    <div className="flex flex-col gap-4 items-center h-full">
+    <div className="flex flex-col gap-4 items-center">
       <div className="w-full h-[56px] bg-amber-200" />
 
       <div className="flex flex-col w-full p-2">
