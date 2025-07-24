@@ -29,16 +29,16 @@ export default function LoginPage() {
       </div>
 
       <div className="flex gap-4">
-        <LoginButton provider="kakao" className="bg-[#FEE500]">
+        <LoginButton provider="kakao" className="bg-[#FEE500] active:bg-[#CCB800] hover:bg-[#FEE500]">
           <Kakao />
         </LoginButton>
-        <LoginButton provider="naver" className="bg-[#03C75A]">
+        <LoginButton provider="naver" className="bg-[#03C75A] active:bg-[#027936] hover:bg-[#03C75A]">
           <Naver />
         </LoginButton>
-        <LoginButton provider="google" className="bg-[#FFFFFF] text-nt-neutral-black">
+        <LoginButton provider="google" className="bg-[#FFFFFF] active:bg-[#747775] hover:bg-[#FFFFFF] text-nt-neutral-black">
           <Google />
         </LoginButton>
-        <LoginButton provider="apple" className="bg-[#000000]">
+        <LoginButton provider="apple" className="bg-[#000000] active:bg-[#DEDEDE] hover:bg-[#000000]">
           <Apple className="-translate-y-0.5" />
         </LoginButton>
       </div>
