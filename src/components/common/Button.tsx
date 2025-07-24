@@ -15,7 +15,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles = cn(
-    'flex w-full h-[46px] bg-nt-primary text-nt-neutral-white hover:bg-nt-primary-400 cursor-pointer',
+    'flex p-0 w-full h-[46px] bg-nt-primary text-nt-neutral-white hover:bg-nt-primary-400 cursor-pointer',
     'active:bg-nt-primary-600 disabled:opacity-100 disabled:bg-nt-neutral-200 disabled:text-nt-neutral-400',
     'focus-visible:border focus-visible:border-nt-primary focus-visible:ring-0 focus-visible:text-nt-primary focus-visible:bg-nt-neutral-white',
     '[&_svg]:!size-auto',
