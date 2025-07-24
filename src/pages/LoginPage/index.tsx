@@ -1,4 +1,3 @@
-import { cn } from '@/lib/shadcn/utils';
 import LoginButton from '@/pages/LoginPage/ui/LoginButton';
 import Link from 'next/link';
 import Rabbit from '@/icons/rabbit.svg';
@@ -8,7 +7,6 @@ import Naver from '@/icons/naver.svg';
 import Google from '@/icons/google.svg';
 import Apple from '@/icons/apple.svg';
 import Kakao from '@/icons/kakao.svg';
-const socialLoginBtnClass = 'rounded-full w-[50px] h-[50px] border border-nt-neutral-250';
 
 export default function LoginPage() {
   return (
@@ -31,20 +29,17 @@ export default function LoginPage() {
       </div>
 
       <div className="flex gap-4">
-        <LoginButton provider="kakao" className={cn(socialLoginBtnClass, 'bg-[#FEE500]')}>
+        <LoginButton provider="kakao" className="bg-[#FEE500]">
           <Kakao />
         </LoginButton>
-        <LoginButton provider="naver" className={cn(socialLoginBtnClass, 'bg-[#03C75A]')}>
+        <LoginButton provider="naver" className="bg-[#03C75A]">
           <Naver />
         </LoginButton>
-        <LoginButton
-          provider="google"
-          className={cn(socialLoginBtnClass, 'bg-[#FFFFFF] text-nt-neutral-black')}
-        >
+        <LoginButton provider="google" className="bg-[#FFFFFF] text-nt-neutral-black">
           <Google />
         </LoginButton>
-        <LoginButton provider="apple" className={cn(socialLoginBtnClass, 'bg-[#000000]')}>
-          <Apple className='-translate-y-0.5'/>
+        <LoginButton provider="apple" className="bg-[#000000]">
+          <Apple className="-translate-y-0.5" />
         </LoginButton>
       </div>
 
