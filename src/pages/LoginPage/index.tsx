@@ -54,7 +54,7 @@ export default function LoginPage() {
         </div>
         <div className="flex gap-8">
           <Link href="#">이메일 로그인</Link>
-          <div className="border-[0.5px] h-[20px] border-nt-neutral-250 " />
+          <div className="border-[0.5px] h-[20px] border-nt-neutral-250" />
           <Link href="#">회원가입</Link>
         </div>
       </div>
