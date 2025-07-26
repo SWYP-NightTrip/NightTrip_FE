@@ -3,7 +3,7 @@ import { Carousel, CarouselContent, CarouselItem } from '@/lib/shadcn/components
 
 import Button from '@/components/common/Button';
 
-import { partnershipServiceCategories } from '@/pages/MainPage/entities/partnership/mock';
+import { partnershipServiceCategories } from '@/components/pages/MainPage/entities/partnership/mock';
 
 export default function PartnershipServiceCarousel() {
   return (

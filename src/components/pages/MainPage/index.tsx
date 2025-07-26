@@ -12,7 +12,7 @@ import PartnershipServiceCarousel from './features/PartnershipServiceCarousel';
 import RecommendedViewSpot from './features/RecommendedViewSpot';
 import Button from '@/components/common/Button';
 
-export function MainPage() {
+export default function MainPage() {
   return (
     <div className="min-h-screen bg-white relative">
       <Header />

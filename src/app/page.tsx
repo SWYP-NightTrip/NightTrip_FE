@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { MainPage } from '@/pages/MainPage';
+import MainPage from '@/components/pages/MainPage';
 
 export default async function HomePage() {
   return (
