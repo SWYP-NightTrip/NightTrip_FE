@@ -1,7 +1,8 @@
-import { Carousel, CarouselContent, CarouselItem } from '@/lib/shadcn/components/ui/carousel';
-import { recommendedSpots } from '@/pages/MainPage/entities/recommend/mock';
+import TripCard from '@/components/pages/MainPage/ui/TripCard';
 
-import TripCard from '@/pages/MainPage/ui/TripCard';
+import { recommendedSpots } from '@/components/pages/MainPage/entities/recommend/mock';
+
+import { Carousel, CarouselContent, CarouselItem } from '@/lib/shadcn/components/ui/carousel';
 
 export default function RecommendedCampingSpot() {
   return (
