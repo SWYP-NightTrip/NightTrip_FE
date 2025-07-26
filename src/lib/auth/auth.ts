@@ -1,10 +1,16 @@
-export const checkSession =  async () => {
-  const res = await fetch(`https://dev.nighttrip.co.kr/api/v1/oauth/status`, {
-    credentials: 'include',
-    cache: 'no-store',
-  });
+export const checkSession = async () => {
+  try {
+    const res = await fetch(`https://dev.nighttrip.co.kr/api/v1/oauth/status`, {
+      credentials: 'include',
+      cache: 'no-store',
+    });
 
-  if (!res.ok) return null;
+    if (!res.ok) return null;
 
-  return res.json();
-}
+    const json = await res.json();
+    
+    return json.data;
+  } catch {
+    return null;
+  }
+};
