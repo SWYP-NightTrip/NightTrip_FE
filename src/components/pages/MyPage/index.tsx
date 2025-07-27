@@ -35,31 +35,31 @@ export default function MyPage() {
 
       <div className="border-1 my-4" />
 
-      <div className="flex flex-col mt-2 mx-3.5 ">
-        <div className="flex flex-col">
+      <div className="flex flex-col mt-2 mx-3.5">
+        <div className="flex flex-col mb-2.5">
           <p className="header3">나의 여행</p>
           <p className="body2 text-nt-neutral-400">
             현재 계획하고 있는 여행을 더욱 빠르게 만나보세요!
           </p>
         </div>
         <Link href="#">
-          <div className="flex py-2.5 px-4 rounded-nt-radius bg-nt-neutral-50 gap-1 h-[79px] my-2.5">
+          <div className="group flex py-2.5 px-4 rounded-nt-radius bg-nt-neutral-50 gap-1 h-[79px] active:bg-nt-primary-600">
             <div className="flex items-center justify-center">
               <Image src={icon} alt="아이콘" width={50} height={50} />
             </div>
 
             <div className="flex flex-col w-full justify-center">
               <div className="flex justify-between items-center">
-                <p className="header4">런던 밤거리 여행</p>
-                <Link href="#" className="body5 text-nt-neutral-400">
+                <p className="header4 group-active:text-nt-neutral-white">런던 밤거리 여행</p>
+                <p className="body5 text-nt-neutral-400 group-active:text-nt-neutral-white">
                   자세히보기
-                </Link>
+                </p>
               </div>
-              <div className="flex items-center gap-2 body2 text-nt-neutral-400">
+              <div className="flex items-center gap-2 body2 text-nt-neutral-400 group-active:text-nt-neutral-white">
                 <span>Day-7</span>
-                <div className="border-r-1 h-[12px]" />
+                <div className="border-r-1 h-[12px] group-active:border-nt-neutral-white" />
                 <span>7/14(수) - 7/30(월)</span>
-                <div className="border-r-1 h-[12px]" />
+                <div className="border-r-1 h-[12px] group-active:border-nt-neutral-white" />
                 <span>6박 7일</span>
               </div>
             </div>
