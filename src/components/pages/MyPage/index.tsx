@@ -5,6 +5,7 @@ import Rabbit from '@/icons/rabbit.svg';
 import Link from 'next/link';
 import Image from 'next/image';
 import icon from '@/images/calendar.png';
+import { profile } from './entities/mock';
 
 export default function MyPage() {
   return (
@@ -14,21 +15,21 @@ export default function MyPage() {
         <Rabbit className="scale-166" />
       </div>
       <div className="flex flex-col justify-center items-center gap-4 px-[16px] py-[10px]">
-        <p className="header1">별명 / 이름</p>
-        <Badge className="bg-nt-secondary-500 text-nt-neutral-white border-0">Lv.4</Badge>
+        <p className="header1">{profile.userName}</p>
+        <Badge className="bg-nt-secondary-500 text-nt-neutral-white border-0">Lv.{profile.level}</Badge>
       </div>
       <div className="flex justify-center items-center gap-14 py-5 px-2.5">
         <div className="flex flex-col items-center gap-2.5">
           <p className="header4 text-nt-neutral-400">북마크</p>
           <Link href="#" className="header1">
-            50개
+            {profile.bookmarked}개
           </Link>
         </div>
         <div className="border-r-1 border-nt-neutral-250 h-[51px]" />
         <div className="flex flex-col items-center gap-2.5">
           <p className="header4 text-nt-neutral-400">좋아요</p>
           <Link href="#" className="header1">
-            50개
+            {profile.liked}개
           </Link>
         </div>
       </div>
@@ -50,7 +51,7 @@ export default function MyPage() {
 
             <div className="flex flex-col w-full justify-center">
               <div className="flex justify-between items-center">
-                <p className="header4 group-active:text-nt-neutral-white">런던 밤거리 여행</p>
+                <p className="header4 group-active:text-nt-neutral-white">{profile.recentPlans[0].planTitle}</p>
                 <p className="body5 text-nt-neutral-400 group-active:text-nt-neutral-white">
                   자세히보기
                 </p>
