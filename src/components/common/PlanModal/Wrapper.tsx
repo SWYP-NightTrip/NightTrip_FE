@@ -1,9 +1,8 @@
 import { Modal } from '@/components/common/Modal';
 
-interface PlanModalWrapperProps {
-  children: React.ReactNode;
+export default function PlanModalWrapper({ children, ...rest }: React.ComponentProps<typeof Modal>) {
+  return <Modal {...rest}>{children}</Modal>;
 }
 
-export default function PlanModalWrapper({ children }: PlanModalWrapperProps) {
-  return <Modal>{children}</Modal>;
-}
+
+

@@ -1,9 +1,5 @@
 import { ModalTrigger } from '@/components/common/Modal';
 
-interface PlanModalTriggerProps {
-  children: React.ReactNode;
-}
-
-export default function PlanModalWrapper({ children }: PlanModalTriggerProps) {
-  return <ModalTrigger>{children}</ModalTrigger>;
+export default function PlanModalWrapper({children, ...rest}: React.ComponentProps<typeof ModalTrigger>) {
+  return <ModalTrigger {...rest}>{children}</ModalTrigger>;
 }

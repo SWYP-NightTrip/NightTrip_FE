@@ -1,14 +1,13 @@
 import { ModalContent, ModalHeader, ModalTitle } from '@/components/common/Modal';
 import Header from '@/components/common/PlanModal/Header';
 
-interface PlanModalContentProps {
+interface PlanModalContentProps extends React.ComponentProps<typeof ModalContent> {
   title: string;
-  children?: React.ReactNode;
 }
 
-export default function PlanModalContent({ title, children }: PlanModalContentProps) {
+export default function PlanModalContent({ title, children, ...rest }: PlanModalContentProps) {
   return (
-    <ModalContent>
+    <ModalContent {...rest}>
       <ModalHeader>
         <ModalTitle>{title}</ModalTitle>
       </ModalHeader>
