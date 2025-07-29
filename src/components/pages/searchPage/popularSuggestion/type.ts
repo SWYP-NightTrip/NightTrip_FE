@@ -1,5 +1,5 @@
-import type { IGenericResponse } from '@/types/api';
+import type { GenericAPIResponse } from '@/types/api';
 
 export type PopularSuggestion = string;
 
-export type PopularSuggestionResponse = IGenericResponse<PopularSuggestion[]>;
+export type PopularSuggestionResponse = GenericAPIResponse<PopularSuggestion[]>;
