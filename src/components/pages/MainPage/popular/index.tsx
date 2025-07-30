@@ -1,10 +1,13 @@
-import { recommendedSpots } from '@/components/pages/MainPage/entities/recommend/mock';
-
 import { Carousel, CarouselContent, CarouselItem } from '@/lib/shadcn/components/ui/carousel';
 
 import TripCard from '@/components/pages/MainPage/ui/TripCard';
 
-export default function RecommendedViewSpot() {
+// import { useGetNightPopularSpot } from '@/components/pages/MainPage/popular/entities';
+import { recommendedSpots } from '@/components/pages/MainPage/mock';
+
+export default function NightPopularSpot() {
+  // const { data: nightPopularSpots } = useGetNightPopularSpot();
+
   return (
     <Carousel
       opts={{

@@ -1,10 +1,13 @@
 import TripCard from '@/components/pages/MainPage/ui/TripCard';
 
-import { recommendedSpots } from '@/components/pages/MainPage/entities/recommend/mock';
-
 import { Carousel, CarouselContent, CarouselItem } from '@/lib/shadcn/components/ui/carousel';
 
-export default function RecommendedCampingSpot() {
+// import { useGetNightPopularCategory } from '@/components/pages/MainPage/category/entities';
+import { recommendedSpots } from '@/components/pages/MainPage/mock';
+
+export default function NightPopularCategory() {
+  // const { data: recommendedSpots } = useGetNightPopularCategory();
+
   return (
     <Carousel
       opts={{

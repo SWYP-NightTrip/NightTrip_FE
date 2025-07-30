@@ -9,7 +9,6 @@ interface TripCardProps {
     stars: string;
     reviewCount: number;
     location: string;
-    price: string;
   };
 }
 
@@ -38,9 +37,6 @@ export default function TripCard({ tripSpot }: TripCardProps) {
         </div>
         <p className="text-sm leading-5 text-nt-neutral-400 tracking-[0.014px]">
           {tripSpot.location}
-        </p>
-        <p className="text-sm font-medium text-nt-neutral-black mt-1 leading-[22px]">
-          {tripSpot.price}
         </p>
       </PhotoCard.Content>
     </>
