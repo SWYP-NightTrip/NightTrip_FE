@@ -1,6 +1,7 @@
 import { DialogClose } from '@/components/common/Dialog';
 import Button from '@/components/common/Button';
-// import Exit from '@/icons/exit.svg';
+// import Exit from '@/icons/exit.svg'; // 빌드용
+import { X } from 'lucide-react'; // 스토리북용
 
 export default function ModalNav({ title }: { title: string }) {
   return (
@@ -10,10 +11,8 @@ export default function ModalNav({ title }: { title: string }) {
       <DialogClose asChild>
         <div>
           <Button className="w-[40px] h-[40px] bg-transparent shadow-none">
-            {/* 스토리북 환경에서 */}
-            <p className='text-nt-neutral-black'>X</p>
-            {/* 빌드 환경에서 */}
-            {/* <Exit />  */}
+            <X className='text-nt-neutral-black'/>
+            {/* <Exit /> */}
           </Button>
         </div>
       </DialogClose>
