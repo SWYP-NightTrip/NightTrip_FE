@@ -2,22 +2,22 @@ import { cn } from '@/lib/shadcn/utils';
 import {
   Dialog,
   DialogClose,
-  DialogContent,
-  DialogTitle,
+  DialogContent as ShadcnDialogContent,
+  DialogTitle as ShadcnDialogTitle,
   DialogHeader,
   DialogTrigger,
 } from '@/lib/shadcn/components/ui/dialog';
 
-function ModalContent({
+function DialogContent({
   className,
   children,
   showCloseButton = false,
   ...props
-}: React.ComponentProps<typeof DialogContent> & {
+}: React.ComponentProps<typeof ShadcnDialogContent> & {
   showCloseButton?: boolean;
 }) {
   return (
-    <DialogContent
+    <ShadcnDialogContent
       className={cn(
         'flex flex-col px-4 py-3 gap-0 !max-w-[375px] bottom-0 translate-y-0 rounded-t-[40px] data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
         className,
@@ -28,19 +28,19 @@ function ModalContent({
       {...props}
     >
       {children}
-    </DialogContent>
+    </ShadcnDialogContent>
   );
 }
 
-function ModalTitle({ className, ...props }: React.ComponentProps<typeof DialogTitle>) {
-  return <DialogTitle className={cn('sr-only', className)} {...props} />;
+function DialogTitle({ className, ...props }: React.ComponentProps<typeof ShadcnDialogTitle>) {
+  return <ShadcnDialogTitle className={cn('sr-only', className)} {...props} />;
 }
 
 export {
-  Dialog as Modal,
-  DialogClose as ModalClose,
-  ModalContent,
-  DialogHeader as ModalHeader,
-  ModalTitle,
-  DialogTrigger as ModalTrigger,
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
 };
