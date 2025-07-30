@@ -1,18 +1,18 @@
 import { DialogContent, DialogHeader, DialogTitle } from '@/components/common/Dialog';
-import Header from '@/components/common/Modal/Header';
+import Nav from '@/components/common/Modal/Nav';
 
-interface PlanDialogContentProps extends React.ComponentProps<typeof DialogContent> {
+interface ModalContentProps extends React.ComponentProps<typeof DialogContent> {
   title: string;
 }
 
-export default function PlanDialogContent({ title, children, ...rest }: PlanDialogContentProps) {
+export default function ModalContent({ title, children, ...rest }: ModalContentProps) {
   return (
     <DialogContent {...rest}>
       <DialogHeader>
         <DialogTitle>{title}</DialogTitle>
       </DialogHeader>
 
-      <Header title={title} />
+      <Nav title={title} />
 
       {children}
     </DialogContent>

@@ -1,6 +1,6 @@
 import { Dialog } from '@/components/common/Dialog';
 
-export default function PlanModalWrapper({
+export default function ModalWrapper({
   children,
   ...rest
 }: React.ComponentProps<typeof Dialog>) {

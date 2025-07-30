@@ -1,6 +1,6 @@
 import { DialogTrigger } from '@/components/common/Dialog';
 
-export default function PlanModalWrapper({
+export default function ModalTrigger({
   children,
   ...rest
 }: React.ComponentProps<typeof DialogTrigger>) {
