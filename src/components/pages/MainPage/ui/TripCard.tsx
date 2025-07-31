@@ -17,7 +17,10 @@ export default function TripCard({ tripSpot }: TripCardProps) {
     <>
       <div className="relative w-[150px] h-[140px]">
         <PhotoCard.Photo
-          src={tripSpot.imgUrl}
+          src={
+            tripSpot.imgUrl ||
+            'https://www.urbanbrush.net/web/wp-content/uploads/edd/2018/07/urbanbrush-20180718073937402135.png'
+          }
           alt={`${tripSpot.name} 이미지`}
           width={150}
           height={140}
@@ -27,7 +30,9 @@ export default function TripCard({ tripSpot }: TripCardProps) {
 
       <PhotoCard.Content className="mt-2.5">
         <div className="flex justify-between">
-          <h3 className="font-semibold text-nt-neutral-black leading-6">{tripSpot.name}</h3>
+          <h3 className="font-semibold text-nt-neutral-black leading-6 max-w-[80px] overflow-hidden text-ellipsis whitespace-nowrap">
+            {tripSpot.name}
+          </h3>
           <div className="flex items-center mb-1">
             <StarIcon />
             <span className="text-xs text-nt-neutral-400 leading-4 tracking-[0.06px]">

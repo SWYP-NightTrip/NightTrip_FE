@@ -2,11 +2,10 @@ import Image from 'next/image';
 import Button from '@/components/common/Button';
 
 import { Carousel, CarouselContent, CarouselItem } from '@/lib/shadcn/components/ui/carousel';
-
-import { partnership } from '@/components/pages/MainPage/mock';
+import { useGetPartnership } from '@/components/pages/MainPage/partnership/entities';
 
 export default function NightTripPartnership() {
-  // const { data: partnership } = useGetPartnership();
+  const { data: partnership } = useGetPartnership();
 
   return (
     <Carousel
@@ -16,11 +15,16 @@ export default function NightTripPartnership() {
       className="w-full "
     >
       <CarouselContent className="flex gap-[14px]">
-        {partnership.map(category => (
+        {partnership.data.map(category => (
           <CarouselItem key={category.id} className="basis-auto w-[70px]">
             <div className="flex flex-col items-center gap-[6px]">
               <Button className="w-[50px] h-[50px] rounded-full bg-nt-primary-50">
-                <Image src={category.imgUrl} alt="아이콘" width={40} height={40} />
+                <Image
+                  src={category.imgUrl || '/images/ex_icon.png'}
+                  alt="아이콘"
+                  width={40}
+                  height={40}
+                />
               </Button>
               <span className="text-nt-neutral-400 text-sm font-semibold leading-[22px]">
                 {category.label}

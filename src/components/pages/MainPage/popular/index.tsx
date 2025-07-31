@@ -2,11 +2,10 @@ import { Carousel, CarouselContent, CarouselItem } from '@/lib/shadcn/components
 
 import TripCard from '@/components/pages/MainPage/ui/TripCard';
 
-// import { useGetNightPopularSpot } from '@/components/pages/MainPage/popular/entities';
-import { recommendedSpots } from '@/components/pages/MainPage/mock';
+import { useGetNightPopularSpot } from '@/components/pages/MainPage/popular/entities';
 
 export default function NightPopularSpot() {
-  // const { data: nightPopularSpots } = useGetNightPopularSpot();
+  const { data: nightPopularSpots } = useGetNightPopularSpot();
 
   return (
     <Carousel
@@ -16,7 +15,7 @@ export default function NightPopularSpot() {
       className="w-full"
     >
       <CarouselContent className="flex gap-[14px] -ml-0">
-        {recommendedSpots.map(spot => (
+        {nightPopularSpots.data.map(spot => (
           <CarouselItem key={spot.id} className="basis-auto p-0">
             <TripCard tripSpot={spot} />
           </CarouselItem>
