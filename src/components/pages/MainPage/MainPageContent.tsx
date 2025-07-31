@@ -5,7 +5,7 @@ import Link from 'next/link';
 import SearchIcon from '@/icons/search.svg';
 
 import Header from './ui/header';
-import Footer from './ui/footer';
+import Footer from '@/components/common/footer';
 
 import NightPopularCategory from '@/components/pages/MainPage/category';
 
