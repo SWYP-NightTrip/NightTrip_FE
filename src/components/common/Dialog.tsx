@@ -19,7 +19,7 @@ function DialogContent({
   return (
     <ShadcnDialogContent
       className={cn(
-        'flex flex-col px-4 py-3 gap-0 !max-w-[375px] bottom-0 translate-y-0 rounded-t-[40px] rounded-b-none data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
+        'flex flex-col px-4 py-3 gap-0 !max-w-[375px] min-h-[400px] bottom-0 top-auto translate-y-0 rounded-t-[40px] rounded-b-none data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
         className,
       )}
       showCloseButton={showCloseButton}
