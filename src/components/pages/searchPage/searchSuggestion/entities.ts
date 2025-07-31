@@ -1,4 +1,4 @@
-import { queryOptions as tsqQueryOptions, useSuspenseQuery } from '@tanstack/react-query';
+import { queryOptions as tsqQueryOptions, useQuery } from '@tanstack/react-query';
 
 import { API_URL } from '@/utils/constant/url';
 
@@ -19,10 +19,11 @@ export const searchSuggestionService = {
     return tsqQueryOptions<SearchSuggestionResponse>({
       queryKey: searchSuggestionService.queryKey(query),
       queryFn: () => requestSearchSuggestion(query),
+      enabled: query.trim() !== '',
     });
   },
 };
 
 export const useGetSearchSuggestion = (searchQuery: string) => {
-  return useSuspenseQuery(searchSuggestionService.queryOptions(searchQuery));
+  return useQuery(searchSuggestionService.queryOptions(searchQuery));
 };

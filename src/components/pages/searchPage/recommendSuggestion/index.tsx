@@ -7,5 +7,5 @@ import SearchKeywordSection from '@/components/pages/searchPage/ui/SearchKeyword
 export default function RecommendSuggestionsContent() {
   const { data: recommendSuggestions } = useGetRecommendSuggestion();
 
-  return <SearchKeywordSection title="추천 검색어" keywords={recommendSuggestions.data} />;
+  return <SearchKeywordSection title="추천 검색어" keywords={[...recommendSuggestions.data]} />;
 }

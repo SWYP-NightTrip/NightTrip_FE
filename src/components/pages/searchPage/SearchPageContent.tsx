@@ -1,33 +1,36 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Suspense, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { debounce } from '@/utils/debounce';
 
 import BackIcon from '@/icons/back.svg';
 import SearchIcon from '@/icons/search-large.svg';
+import ResetInputIcon from '@/icons/reset-input.svg';
 import InputGroup from '@/components/common/InputGroup';
 
-import Spinner from '@/components/pages/searchPage/ui/Spinner';
-
-import RecommendSuggestions from '@/components/pages/searchPage/recommendSuggestion';
-import PopularSuggestion from '@/components/pages/searchPage/popularSuggestion';
 import SearchSuggestions from '@/components/pages/searchPage/searchSuggestion';
 
 export default function SearchPageContent() {
   const router = useRouter();
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [searchDebouncedQuery, setSearchDebouncedQuery] = useState('');
 
   const updateQuery = debounce((newQuery: string) => {
-    setSearchQuery(newQuery);
+    setSearchDebouncedQuery(newQuery);
   }, 500);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newQuery = e.target.value;
+  const searchReset = () => {
+    if (inputRef.current) {
+      inputRef.current.value = '';
+      updateQuery('');
+    }
+  };
 
-    updateQuery(newQuery);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    updateQuery(e.target.value);
   };
 
   const handleBackClick = () => {
@@ -51,10 +54,14 @@ export default function SearchPageContent() {
         <div className="flex-1">
           <InputGroup.Wrapper>
             <InputGroup.Input
+              ref={inputRef}
               className="rounded-full"
               placeholder="여행지, 장소, 맛집, 숙소, 야경"
               onChange={handleInputChange}
             />
+            <InputGroup.RightElement onClick={searchReset}>
+              <ResetInputIcon />
+            </InputGroup.RightElement>
           </InputGroup.Wrapper>
         </div>
 
@@ -63,24 +70,7 @@ export default function SearchPageContent() {
         </div>
       </header>
 
-      {searchQuery === '' && (
-        <div className="mt-[44px] px-4 space-y-[50px]">
-          <RecommendSuggestions />
-          <PopularSuggestion />
-        </div>
-      )}
-
-      {searchQuery !== '' && (
-        <Suspense
-          fallback={
-            <div className="flex justify-center items-center h-[calc(100vh-56px)]">
-              <Spinner />
-            </div>
-          }
-        >
-          <SearchSuggestions searchQuery={searchQuery} />
-        </Suspense>
-      )}
+      <SearchSuggestions searchQuery={searchDebouncedQuery} />
     </>
   );
 }
