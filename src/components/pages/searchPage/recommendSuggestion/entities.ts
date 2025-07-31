@@ -1,4 +1,4 @@
-import { queryOptions as tsqQueryOptions, useQuery } from '@tanstack/react-query';
+import { queryOptions as tsqQueryOptions, useSuspenseQuery } from '@tanstack/react-query';
 
 import { API_URL } from '@/utils/constant/url';
 
@@ -24,5 +24,5 @@ export const recommendSuggestionService = {
 };
 
 export const useGetRecommendSuggestion = () => {
-  return useQuery(recommendSuggestionService.queryOptions());
+  return useSuspenseQuery(recommendSuggestionService.queryOptions());
 };

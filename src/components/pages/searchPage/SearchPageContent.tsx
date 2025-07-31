@@ -40,7 +40,7 @@ export default function SearchPageContent() {
 
   return (
     <>
-      <header className="px-2 flex justify-between items-center">
+      <header className="sticky top-0 z-10 bg-white px-2 flex justify-between items-center">
         <button
           className="w-[42px] h-[42px] bg-nt-white active:bg-nt-primary-50 p-2 rounded-nt-radius"
           onClick={handleBackClick}

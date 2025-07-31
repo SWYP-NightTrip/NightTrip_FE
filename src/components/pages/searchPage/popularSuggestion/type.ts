@@ -1,5 +1,8 @@
 import type { GenericAPIResponse } from '@/types/api';
 
-export type PopularSuggestion = string;
+export interface PopularSuggestion {
+  id: string;
+  name: string;
+}
 
 export type PopularSuggestionResponse = GenericAPIResponse<PopularSuggestion[]>;
