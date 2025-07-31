@@ -1,6 +1,7 @@
 import PhotoCard from '@/components/common/PhotoCard';
 
 import StarIcon from '@/icons/star.svg';
+import { FALLBACK_CARD_IMAGE_URL } from '@/utils/constant/url';
 
 interface TripCardProps {
   tripSpot: {
@@ -17,10 +18,7 @@ export default function TripCard({ tripSpot }: TripCardProps) {
     <>
       <div className="relative w-[150px] h-[140px]">
         <PhotoCard.Photo
-          src={
-            tripSpot.imgUrl ||
-            'https://www.urbanbrush.net/web/wp-content/uploads/edd/2018/07/urbanbrush-20180718073937402135.png'
-          }
+          src={tripSpot.imgUrl || FALLBACK_CARD_IMAGE_URL}
           alt={`${tripSpot.name} 이미지`}
           width={150}
           height={140}
