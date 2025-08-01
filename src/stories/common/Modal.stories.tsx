@@ -21,7 +21,7 @@ export const Default: Story = {
   render: () => (
     <Modal.Wrapper>
       <Modal.Trigger>클릭</Modal.Trigger>
-      <Modal.Content title="여행 일정 추가하기"></Modal.Content>
+      <Modal.Content title="여행 일정 추가하기" className='!max-w-[375px]'></Modal.Content>
     </Modal.Wrapper>
   ),
 };
@@ -37,7 +37,7 @@ export const CustomContent: Story = {
   render: () => (
     <Modal.Wrapper>
       <Modal.Trigger>클릭</Modal.Trigger>
-      <Modal.Content title="여행 일정 추가하기">
+      <Modal.Content title="여행 일정 추가하기" className='!max-w-[375px]'>
         <div className="p-4 flex flex-col gap-4">
           <div className="bg-nt-primary-50 p-4 rounded-lg">
             <h3 className="text-lg font-semibold mb-2">섹션 1</h3>
