@@ -23,8 +23,6 @@ function DialogContent({
         className,
       )}
       showCloseButton={showCloseButton}
-      aria-labelledby="dialog-title"
-      aria-describedby=""
       {...props}
     >
       {children}
