@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-
 import MainPage from '@/components/pages/MainPage';
 
 export default async function HomePage() {
