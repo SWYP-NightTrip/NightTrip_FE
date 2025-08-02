@@ -1,8 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
-import Loading from '@/components/pages/DetailPage/ui/Loading';
+import { useState, useEffect } from 'react';
 
 interface MapProps {
   latitude: number;
@@ -10,50 +8,67 @@ interface MapProps {
 }
 
 export default function Map({ latitude, longitude }: MapProps) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [mapLoaded, setMapLoaded] = useState(false);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    const checkNaverMapLoaded = () => {
-      if (
-        typeof window !== 'undefined' &&
-        window.naver &&
-        window.naver.maps &&
-        window.naver.maps.Map
-      ) {
-        setIsLoading(true);
-        initializeMap();
-      }
+    // 스크립트를 동적으로 로드
+    const loadNaverMapScript = () => {
+      return new Promise<void>((resolve, reject) => {
+        if (typeof window !== 'undefined' && window.naver && window.naver.maps) {
+          resolve();
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error('네이버 지도 스크립트 로드 실패'));
+        document.head.appendChild(script);
+      });
     };
 
-    const initializeMap = () => {
+    const initializeMap = async () => {
       try {
-        const map = new window.naver.maps.Map('map', {
+        await loadNaverMapScript();
+
+        const mapOptions = {
           center: new window.naver.maps.LatLng(latitude, longitude),
           zoom: 15,
-        });
+        };
+
+        const map = new window.naver.maps.Map('map', mapOptions);
 
         new window.naver.maps.Marker({
           position: new window.naver.maps.LatLng(latitude, longitude),
           map: map,
         });
-      } catch (error: unknown) {
-        console.error(error);
+
+        setMapLoaded(true);
+      } catch (error) {
+        console.error('지도 초기화 실패:', error);
         setIsError(true);
       }
     };
 
-    checkNaverMapLoaded();
+    initializeMap();
   }, [latitude, longitude]);
 
+  if (isError) {
+    return (
+      <div className="flex items-center justify-center h-[400px] text-gray-500">
+        지도를 불러올 수 없습니다.
+      </div>
+    );
+  }
+
   return (
-    <div id="map" className="w-full h-[400px]">
-      {isLoading && (
-        <div className="w-full h-[400px] flex items-center justify-center">
-          <Loading />
+    <div id="map" style={{ width: '100%', height: '400px' }}>
+      {!mapLoaded && (
+        <div className="flex items-center justify-center h-full">
+          <div className="text-gray-500">지도 로딩 중...</div>
         </div>
       )}
-      {isError && <div className="flex items-center justify-center">지도 로딩 실패</div>}
     </div>
   );
 }

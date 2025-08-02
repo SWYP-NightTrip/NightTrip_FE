@@ -1,30 +1,46 @@
 'use client';
 
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-import Button from '@/components/common/Button';
 import TopNav from '@/components/common/TopNav';
 
 import BackIcon from '@/icons/back.svg';
-// import StarIcon from '@/icons/star.svg';
 import AddressIcon from '@/icons/address.svg';
 import PhoneIcon from '@/icons/phone.svg';
 
-import { mockDetailData } from '@/components/pages/DetailPage/entities';
 import Divider from '@/components/pages/DetailPage/ui/Divider';
 import Map from '@/components/pages/DetailPage/ui/map';
 import ImageCarousel from '@/components/pages/DetailPage/ui/ImageCarousel';
 import Footer from '@/components/common/footer';
 
-export default function DetailPage() {
+import { mockDetailData } from '@/components/pages/DetailPage/entities';
+
+interface DetailPageProps {
+  id?: string;
+}
+
+export default function DetailPage({ id }: DetailPageProps) {
+  console.log(id, 'id'); // 라우팅 할 때 쓰임
+
+  const router = useRouter();
+
+  const handleBackClick = () => {
+    if (window.history.length > 1) {
+      router.back();
+    } else {
+      router.push('/');
+    }
+  };
+
   return (
     <>
       <TopNav>
-        <Link href="#">
-          <Button className="w-[42px] h-[42px] bg-transparent shadow-none">
-            <BackIcon />
-          </Button>
-        </Link>
+        <button
+          onClick={handleBackClick}
+          className="w-[42px] h-[42px] bg-nt-white active:bg-nt-primary-50 p-2 rounded-nt-radius"
+        >
+          <BackIcon />
+        </button>
         <p className="mx-auto header2">{mockDetailData.data.spotName}</p>
         <div />
       </TopNav>

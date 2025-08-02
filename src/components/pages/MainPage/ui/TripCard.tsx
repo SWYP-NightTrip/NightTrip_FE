@@ -1,3 +1,7 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 import PhotoCard from '@/components/common/PhotoCard';
 
 import StarIcon from '@/icons/star.svg';
@@ -5,6 +9,7 @@ import { FALLBACK_CARD_IMAGE_URL } from '@/utils/constant/url';
 
 interface TripCardProps {
   tripSpot: {
+    id: number;
     imgUrl: string;
     name: string;
     stars: string;
@@ -14,8 +19,14 @@ interface TripCardProps {
 }
 
 export default function TripCard({ tripSpot }: TripCardProps) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/detail/${tripSpot.id}`);
+  };
+
   return (
-    <>
+    <div onClick={handleClick} className="cursor-pointer">
       <div className="relative w-[150px] h-[140px]">
         <PhotoCard.Photo
           src={tripSpot.imgUrl || FALLBACK_CARD_IMAGE_URL}
@@ -42,6 +53,6 @@ export default function TripCard({ tripSpot }: TripCardProps) {
           {tripSpot.location}
         </p>
       </PhotoCard.Content>
-    </>
+    </div>
   );
 }
