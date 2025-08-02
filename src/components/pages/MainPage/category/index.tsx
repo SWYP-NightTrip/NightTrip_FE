@@ -1,10 +1,12 @@
 import TripCard from '@/components/pages/MainPage/ui/TripCard';
 
-import { recommendedSpots } from '@/components/pages/MainPage/entities/recommend/mock';
-
 import { Carousel, CarouselContent, CarouselItem } from '@/lib/shadcn/components/ui/carousel';
 
-export default function RecommendedCampingSpot() {
+import { useGetNightPopularCategory } from '@/components/pages/MainPage/category/entities';
+
+export default function NightPopularCategory() {
+  const { data: recommendedSpots } = useGetNightPopularCategory();
+
   return (
     <Carousel
       opts={{
@@ -13,7 +15,7 @@ export default function RecommendedCampingSpot() {
       className="w-full"
     >
       <CarouselContent className="flex gap-[12px] -ml-0">
-        {recommendedSpots.map(spot => (
+        {recommendedSpots.data.map(spot => (
           <CarouselItem key={spot.id} className="basis-auto p-0">
             <TripCard tripSpot={spot} />
           </CarouselItem>
