@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NEXT_PUBLIC_ENV=development next dev --turbopack --experimental-https",
-    "build:prod": "NEXT_PUBLIC_ENV=production next build",
-    "build:dev": "NEXT_PUBLIC_ENV=development next build",
+    "dev": "next dev --turbopack --experimental-https --hostname local.nighttrip.co.kr --port 3000",
+    "build:prod": "next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
