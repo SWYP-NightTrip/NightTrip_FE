@@ -7,11 +7,11 @@ import Link from 'next/link';
 export default function Header() {
   return (
     <TopNav>
-      <Link href="#">
-        <Button className="w-[42px] h-[42px] bg-transparent shadow-none text-black">
+      <Button className="w-[42px] h-[42px] bg-transparent shadow-none text-black">
+        <Link href="/">
           <Back />
-        </Button>
-      </Link>
+        </Link>
+      </Button>
     </TopNav>
   );
 }
