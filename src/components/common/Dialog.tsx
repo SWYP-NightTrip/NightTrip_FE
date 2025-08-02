@@ -31,7 +31,7 @@ function DialogContent({
 }
 
 function DialogTitle({ className, ...props }: React.ComponentProps<typeof ShadcnDialogTitle>) {
-  return <ShadcnDialogTitle className={cn('sr-only', className)} {...props} />;
+  return <ShadcnDialogTitle className={className} {...props} />;
 }
 
 export {
