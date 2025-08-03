@@ -9,12 +9,28 @@ import { getMyPageData } from '@/components/pages/MyPage/profile/entities';
 
 export default async function MyPage() {
   const data = await getMyPageData();
-  console.log(data);
+
+  const startDate = new Date(data.recentPlans[0].startDate);
+  const endDate = new Date(data.recentPlans[0].endDate);
+  const startMonth = startDate.getMonth() + 1;
+  const endMonth = endDate.getMonth() + 1;
+  const startDay = startDate.getDate();
+  const endDay = endDate.getDate();
+  const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+  const startDayOfWeek = dayNames[startDate.getDay()];
+  const endDayOfWeek = dayNames[endDate.getDay()];
+  const dDay = Math.ceil(
+    ((startDate ?? '').getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24),
+  );
+  const diffDay = ((endDate ?? '').getTime() - (startDate ?? '').getTime()) / (1000 * 60 * 60 * 24);
+
   return (
     <div className="flex flex-col">
       <Header />
       <div className="flex justify-center items-center h-[217px]">
-        <Image src={data.userAvatarUrl} alt="캐릭터 이미지" width={188} height={180} />
+        {data.userAvatarUrl ? (
+          <Image src={data.userAvatarUrl} alt="캐릭터 이미지" width={188} height={180} />
+        ) : null}
       </div>
       <div className="flex flex-col justify-center items-center gap-4 px-[16px] py-[10px]">
         <p className="header1">{data.userName}</p>
@@ -63,15 +79,13 @@ export default async function MyPage() {
                 </p>
               </div>
               <div className="flex items-center gap-2 body2 text-nt-neutral-400 group-active:text-nt-neutral-white">
+                <span>Day-{dDay}</span>
+                <div className="border-r-1 h-[12px] group-active:border-nt-neutral-white" />
                 <span>
-                  Day-
-                  {Math.ceil((new Date(data.recentPlans[0].startDate ?? '').getTime() - new Date().getTime())/
-                    (1000 * 60 * 60 * 24))}
+                  {startMonth}/{startDay}({startDayOfWeek}) - {endMonth}/{endDay}({endDayOfWeek})
                 </span>
                 <div className="border-r-1 h-[12px] group-active:border-nt-neutral-white" />
-                <span>7/14(수) - 7/30(월)</span>
-                <div className="border-r-1 h-[12px] group-active:border-nt-neutral-white" />
-                <span>6박 7일</span>
+                <span>{diffDay}박 {diffDay + 1}일</span>
               </div>
             </div>
           </div>
