@@ -3,6 +3,7 @@ import { queryOptions as tsqQueryOptions, useSuspenseQuery } from '@tanstack/rea
 import { API_URL } from '@/utils/constant/url';
 
 import type { GenericAPIResponse } from '@/types/api';
+import { getQueryClient } from '@/lib/tanstack/queryClient';
 
 export interface DetailSpot {
   spotName: string;
@@ -19,6 +20,7 @@ export interface DetailSpot {
   starAverage: `${number}.${number}`;
   starCountSum: number;
   mainImage: string | null;
+  isLiked: boolean;
   spotImages: string[];
   spotDetails: string[];
 }
@@ -37,6 +39,9 @@ const keys = {
 
 export const DetailSpotService = {
   queryKey: (id: string) => [...keys.root(id)],
+  invalidate: (id: string) => {
+    getQueryClient().invalidateQueries({ queryKey: DetailSpotService.queryKey(id) });
+  },
   queryOptions: (id: string) => {
     return tsqQueryOptions<DetailSpotResponse>({
       queryKey: DetailSpotService.queryKey(id),

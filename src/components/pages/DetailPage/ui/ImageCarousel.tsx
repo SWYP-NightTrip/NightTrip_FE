@@ -29,7 +29,7 @@ export default function ImageCarousel({ images, spotName }: ImageCarouselProps) 
   };
 
   return (
-    <div className="relative py-5 px-4">
+    <div className="relative">
       {/* 이미지 캐러셀 */}
       <Carousel setApi={setApi} className="w-full relative">
         <CarouselContent>

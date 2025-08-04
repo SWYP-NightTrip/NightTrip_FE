@@ -14,10 +14,13 @@ import ImageCarousel from '@/components/pages/DetailPage/ui/ImageCarousel';
 import Footer from '@/components/common/footer';
 
 import StarIcon from '@/icons/star.svg';
+import FillHeartIcon from '@/icons/fill_like.svg';
+import EmptyHeartIcon from '@/icons/empty_like.svg';
 
 import { useGetDetailSpot } from '@/components/pages/DetailPage/detail/entities';
 
 import { FALLBACK_CARD_IMAGE_URL } from '@/utils/constant/url';
+import { useLike } from '@/components/pages/DetailPage/like/entities';
 
 interface DetailPageContentProps {
   id: string;
@@ -25,6 +28,8 @@ interface DetailPageContentProps {
 
 export default function DetailPageContent({ id }: DetailPageContentProps) {
   const { data: detailData } = useGetDetailSpot(id);
+
+  const { toggleLike } = useLike(id);
 
   const router = useRouter();
 
@@ -48,14 +53,21 @@ export default function DetailPageContent({ id }: DetailPageContentProps) {
         <p className="mx-auto header2">{detailData.data.spotName}</p>
         <div />
       </TopNav>
-      <ImageCarousel
-        images={
-          detailData.data.spotImages.length === 0
-            ? [FALLBACK_CARD_IMAGE_URL]
-            : detailData.data.spotImages
-        }
-        spotName={detailData.data.spotName}
-      />
+      <div className="py-5 px-4">
+        <div className="relative">
+          <ImageCarousel
+            images={
+              detailData.data.spotImages.length === 0
+                ? [FALLBACK_CARD_IMAGE_URL]
+                : detailData.data.spotImages
+            }
+            spotName={detailData.data.spotName}
+          />
+          <button className="absolute top-4 right-4" onClick={toggleLike}>
+            {detailData.data.isLiked ? <FillHeartIcon /> : <EmptyHeartIcon />}
+          </button>
+        </div>
+      </div>
       <div className="px-4">
         <div className="p-2.5">
           <div className="flex gap-2.5">
@@ -78,7 +90,11 @@ export default function DetailPageContent({ id }: DetailPageContentProps) {
             </div>
             <div className="flex gap-2 items-center">
               <PhoneIcon />
-              <span className="body1">{detailData.data.telephone === 'NaN' && '없음'}</span>
+              <span className="body1">
+                {detailData.data.telephone === 'NaN' || detailData.data.telephone === null
+                  ? '없음'
+                  : detailData.data.telephone}
+              </span>
             </div>
           </div>
         </div>
@@ -124,7 +140,9 @@ export default function DetailPageContent({ id }: DetailPageContentProps) {
         <div className="header3 text-nt-neutral-900">소개글</div>
         <div className="mt-3">
           <div className="body2 text-nt-neutral-400">
-            {detailData.data.spotDescription === 'NaN' && '없음'}
+            {detailData.data.spotDescription === 'NaN' || detailData.data.spotDescription === null
+              ? '없음'
+              : detailData.data.spotDescription}
           </div>
         </div>
       </div>
