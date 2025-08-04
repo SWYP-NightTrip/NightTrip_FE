@@ -1,25 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { QueryClient } from '@tanstack/react-query';
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query';
 
 import type { QueryKey, DefaultError, FetchQueryOptions } from '@tanstack/react-query';
 
-async function HydrationPrefetchBoundary<
-  TQueryFnData = unknown,
-  TError = DefaultError,
-  TData = TQueryFnData,
-  TQueryKey extends QueryKey = QueryKey,
->({
+type AnyFetchQueryOptions = FetchQueryOptions<any, DefaultError, any, QueryKey>;
+
+export default async function HydrationPrefetchBoundary({
   fetchQueryOptions,
   children,
 }: {
-  fetchQueryOptions: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>;
+  fetchQueryOptions: AnyFetchQueryOptions[];
   children: React.ReactNode;
 }) {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(fetchQueryOptions);
+  await Promise.all(fetchQueryOptions.map(option => queryClient.prefetchQuery(option)));
 
   return <HydrationBoundary state={dehydrate(queryClient)}>{children}</HydrationBoundary>;
 }
-
-export default HydrationPrefetchBoundary;

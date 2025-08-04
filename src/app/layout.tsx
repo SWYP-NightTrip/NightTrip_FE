@@ -1,4 +1,5 @@
 import './globals.css';
+import Script from 'next/script';
 
 import { pretendard } from '@/utils/font';
 import QueryProvider from '@/lib/tanstack/QueryProvider';
@@ -46,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${pretendard.variable} font-pretendard`}>
       <head>
-        <script defer src="https://cdn.swygbro.com/public/widget/swyg-widget.js"></script>
+        <Script src="https://cdn.swygbro.com/public/widget/swyg-widget.js" strategy="lazyOnload" />
       </head>
       <body>
         <main className="mobile-container">
