@@ -4,19 +4,22 @@ import { API_URL } from '@/utils/constant/url';
 
 import type { GenericAPIResponse } from '@/types/api';
 
-export interface NightPopularCategory {
-  id: number;
-  name: string;
-  stars: `${number}` | `${number}.${number}`;
-  reviewCount: 2;
-  location: string;
-  imgUrl: string;
-  distanceKm: number | null;
+export interface NightRecommendCategory {
+  category: string;
+  spots: {
+    id: number;
+    name: string;
+    stars: `${number}` | `${number}.${number}`;
+    reviewCount: 2;
+    location: string;
+    imgUrl: string;
+    distanceKm: number | null;
+  }[];
 }
 
-export type NightPopularCategoryResponse = GenericAPIResponse<NightPopularCategory[]>;
+export type NightRecommendCategoryResponse = GenericAPIResponse<NightRecommendCategory>;
 
-const requestNightPopularCategory = async (): Promise<NightPopularCategoryResponse> => {
+const requestNightRecommendCategory = async (): Promise<NightRecommendCategoryResponse> => {
   const response = await fetch(`${API_URL}/main/recommend/category`);
   return response.json();
 };
@@ -25,16 +28,16 @@ const keys = {
   root: () => ['main', 'recommend', 'category'],
 } as const;
 
-export const nightPopularCategoryService = {
+export const nightRecommendCategoryService = {
   queryKey: () => [...keys.root()],
   queryOptions: () => {
-    return tsqQueryOptions<NightPopularCategoryResponse>({
-      queryKey: nightPopularCategoryService.queryKey(),
-      queryFn: () => requestNightPopularCategory(),
+    return tsqQueryOptions<NightRecommendCategoryResponse>({
+      queryKey: nightRecommendCategoryService.queryKey(),
+      queryFn: () => requestNightRecommendCategory(),
     });
   },
 };
 
-export const useGetNightPopularCategory = () => {
-  return useSuspenseQuery(nightPopularCategoryService.queryOptions());
+export const useGetNightRecommendCategory = () => {
+  return useSuspenseQuery(nightRecommendCategoryService.queryOptions());
 };
