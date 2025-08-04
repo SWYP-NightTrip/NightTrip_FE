@@ -6,7 +6,7 @@ import Setting from '@/icons/setting.svg';
 
 export default function Header() {
   return (
-    <TopNav>
+    <TopNav className='bg-nt-neutral-white mb-10'>
       <Link href="#">
         <Button className="w-[42px] h-[42px] bg-transparent shadow-none">
           <Back />
