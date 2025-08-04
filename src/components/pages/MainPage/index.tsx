@@ -1,5 +1,5 @@
 import HydrationPrefetchBoundary from '@/components/boundary/HydrationPrefetchBoundary';
-import { nightPopularCategoryService } from '@/components/pages/MainPage/category/entities';
+// import { nightPopularCategoryService } from '@/components/pages/MainPage/category/entities';
 import { partnershipService } from '@/components/pages/MainPage/partnership/entities';
 import { nightPopularSpotService } from '@/components/pages/MainPage/popular/entities';
 
@@ -9,7 +9,7 @@ export default function MainPage() {
   return (
     <HydrationPrefetchBoundary
       fetchQueryOptions={[
-        nightPopularCategoryService.queryOptions(),
+        // nightPopularCategoryService.queryOptions(),
         nightPopularSpotService.queryOptions(),
         partnershipService.queryOptions(),
       ]}
