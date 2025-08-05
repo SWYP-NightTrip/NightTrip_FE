@@ -6,9 +6,11 @@ import {
 
 import { API_URL } from '@/utils/constant/url';
 
+import { DetailSpotService } from '@/components/pages/DetailPage/detail/entities';
+import { useModal } from '@/hooks/useModal';
+
 import type { GenericAPIResponse } from '@/types/api';
 import type { DetailSpotResponse } from '@/components/pages/DetailPage/detail/entities';
-import { DetailSpotService } from '@/components/pages/DetailPage/detail/entities';
 
 export type LikeResponse = GenericAPIResponse<{ data: null }>;
 
@@ -43,6 +45,7 @@ export const likeService = {
 };
 
 export const useLikeMutation = (touristSpotId: string) => {
+  const { modal } = useModal();
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -62,14 +65,12 @@ export const useLikeMutation = (touristSpotId: string) => {
         },
       );
     },
-    onError: error => {
-      console.error('좋아요 요청 실패:', error);
-      // 에러 처리 (토스트 메시지 등)
+    onError: () => {
+      modal.loginError(true);
     },
   });
 };
 
-// 사용 예시를 위한 훅
 export const useLike = (touristSpotId: string) => {
   const mutation = useLikeMutation(touristSpotId);
 

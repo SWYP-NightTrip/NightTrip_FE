@@ -5,6 +5,7 @@ import { pretendard } from '@/utils/font';
 import QueryProvider from '@/lib/tanstack/QueryProvider';
 
 import type { Metadata } from 'next';
+import GlobalProvider from '@/provider/global';
 
 export const metadata: Metadata = {
   title: 'NightTrip',
@@ -51,7 +52,9 @@ export default function RootLayout({
       </head>
       <body>
         <main className="mobile-container">
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <GlobalProvider>{children}</GlobalProvider>
+          </QueryProvider>
         </main>
       </body>
     </html>

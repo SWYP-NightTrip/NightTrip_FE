@@ -63,7 +63,7 @@ export default function DetailPageContent({ id }: DetailPageContentProps) {
             }
             spotName={detailData.data.spotName}
           />
-          <button className="absolute top-4 right-4" onClick={toggleLike}>
+          <button className="absolute top-4 right-4 cursor-pointer" onClick={toggleLike}>
             {detailData.data.isLiked ? <FillHeartIcon /> : <EmptyHeartIcon />}
           </button>
         </div>
