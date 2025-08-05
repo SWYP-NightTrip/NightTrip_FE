@@ -10,8 +10,12 @@ import Footer from '@/components/common/footer';
 import NightTripPartnership from '@/components/pages/MainPage/partnership';
 import NightPopularSpot from '@/components/pages/MainPage/popular';
 import NightRecommendCategory from '@/components/pages/MainPage/category';
+import Button from '@/components/common/Button';
+import { useRouter } from 'next/navigation';
 
 export default function MainPageContent() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-white relative">
       <Header />
@@ -41,6 +45,9 @@ export default function MainPageContent() {
       </div>
       <NightPopularSpot />
       <NightRecommendCategory />
+      <div className='py-2.5 px-4'>
+        <Button onClick={() => router.push('/recommend')}>더 많은 추천지 보기</Button>
+      </div>
       <div className="w-full h-[100px]"></div> {/* Footer 높이만큼 빈 공간 추가 */}
       <Footer />
     </div>
