@@ -6,8 +6,8 @@ import { getDDay, getPlanPeriod } from '@/components/pages/MyPage/mapping/mappin
 
 export default function RecentPlans() {
   const { data } = useGetMyPageRecentPlans();
-  const { recentPlans } = data.data;
-
+  const recentPlans = data?.data?.recentPlans ?? [];
+  
   const period = getPlanPeriod(recentPlans[0]?.startDate, recentPlans[0]?.endDate);
   const dDay = getDDay(recentPlans[0]?.startDate);
 

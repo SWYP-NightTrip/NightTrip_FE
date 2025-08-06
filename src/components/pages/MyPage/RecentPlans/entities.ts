@@ -1,4 +1,4 @@
-import { useSuspenseQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { API_URL } from '@/utils/constant/url';
 import type { GenericAPIResponse } from '@/types/api';
 
@@ -28,7 +28,7 @@ const requestMyPageRecentPlans = async (): Promise<MyPageResponse> => {
 };
 
 export const useGetMyPageRecentPlans = () => {
-  return useSuspenseQuery({
+  return useQuery({
     queryKey: ['mypage', 'recent-plans'],
     queryFn: requestMyPageRecentPlans,
   });
