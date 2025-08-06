@@ -1,12 +1,17 @@
 import { queryOptions as tsqQueryOptions, useQuery } from '@tanstack/react-query';
 
 import { API_URL } from '@/utils/constant/url';
+import { requestAPI } from '@/utils/request/request';
 
 import type { SearchSuggestionResponse } from '@/components/pages/searchPage/searchSuggestion/type';
 
 const requestSearchSuggestion = async (query: string): Promise<SearchSuggestionResponse> => {
-  const response = await fetch(`${API_URL}/search?query=${query}`);
-  return response.json();
+  return await requestAPI<SearchSuggestionResponse>({
+    url: `${API_URL}/search?query=${query}`,
+    options: {
+      method: 'GET',
+    },
+  });
 };
 
 const keys = {
