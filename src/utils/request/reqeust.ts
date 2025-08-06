@@ -33,8 +33,8 @@ export const requestAPI = <T>({ url, params, options }: ReqParams): Promise<T> =
         return response.json();
       })
       .then((data: T) => resolve(data))
-      .catch(error => {
-        reject(new UnExpectedAPIError(error.message));
+      .catch((error: unknown) => {
+        reject(new UnExpectedAPIError({ error }));
       });
   });
 };

@@ -39,7 +39,10 @@ export class UnExpectedAPIError extends APIError {
   readonly errorType = 'UNEXPECTED_API_ERROR';
   readonly statusCode = 0;
 
-  constructor(message?: string) {
-    super(message || 'UNEXPECTED_API_ERROR');
+  public error: unknown;
+
+  constructor({ error }: { error: unknown }) {
+    super('UNEXPECTED_API_ERROR');
+    this.error = error;
   }
 }
