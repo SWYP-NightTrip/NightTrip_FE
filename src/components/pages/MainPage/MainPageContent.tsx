@@ -10,13 +10,16 @@ import Footer from '@/components/common/footer';
 import NightTripPartnership from '@/components/pages/MainPage/partnership';
 import NightPopularSpot from '@/components/pages/MainPage/popular';
 import NightRecommendCategory from '@/components/pages/MainPage/category';
+import MainErrorBoundary from '@/components/pages/MainPage/ui/MainErrorBoundary';
 
 export default function MainPageContent() {
   return (
     <div className="min-h-screen bg-white relative">
       <Header />
       <div className="pl-4 pt-2.5 pb-5">
-        <NightTripPartnership />
+        <MainErrorBoundary dataType="제휴 서비스">
+          <NightTripPartnership />
+        </MainErrorBoundary>
       </div>
       <div className="px-4">
         <Link
@@ -39,8 +42,12 @@ export default function MainPageContent() {
           오후에 여행하기 좋은 추천 여행지, 포토스팟 등
         </span>
       </div>
-      <NightPopularSpot />
-      <NightRecommendCategory />
+      <MainErrorBoundary dataType="인기 여행지">
+        <NightPopularSpot />
+      </MainErrorBoundary>
+      <MainErrorBoundary dataType="추천 여행지">
+        <NightRecommendCategory />
+      </MainErrorBoundary>
       <div className="w-full h-[100px]"></div> {/* Footer 높이만큼 빈 공간 추가 */}
       <Footer />
     </div>

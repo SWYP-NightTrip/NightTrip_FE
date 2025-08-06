@@ -6,6 +6,8 @@ import SearchLink from '@/components/pages/searchPage/ui/SearchLink';
 import RecommendSuggestions from '@/components/pages/searchPage/recommendSuggestion';
 import PopularSuggestion from '@/components/pages/searchPage/popularSuggestion';
 import Spinner from '@/components/pages/searchPage/ui/Spinner';
+
+import SearchErrorBoundary from '@/components/pages/searchPage/ui/SearchErrorBoundary';
 interface SearchSuggestionsProps {
   searchQuery: string;
 }
@@ -22,8 +24,12 @@ export default function SearchSuggestions({ searchQuery }: SearchSuggestionsProp
   if (!isEnabled) {
     return (
       <div className="mt-[44px] px-4 space-y-[50px]">
-        <RecommendSuggestions />
-        <PopularSuggestion />
+        <SearchErrorBoundary dataType="추천 검색어 (여행지)">
+          <RecommendSuggestions />
+        </SearchErrorBoundary>
+        <SearchErrorBoundary dataType="인기 검색어 (여행지)">
+          <PopularSuggestion />
+        </SearchErrorBoundary>
       </div>
     );
   }

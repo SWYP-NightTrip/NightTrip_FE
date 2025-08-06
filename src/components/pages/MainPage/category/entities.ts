@@ -3,6 +3,7 @@ import { queryOptions as tsqQueryOptions, useSuspenseQuery } from '@tanstack/rea
 import { API_URL } from '@/utils/constant/url';
 
 import type { GenericAPIResponse } from '@/types/api';
+import { requestAPI } from '@/utils/request/request';
 
 export interface NightRecommendCategory {
   category: string;
@@ -10,7 +11,7 @@ export interface NightRecommendCategory {
     id: number;
     name: string;
     stars: `${number}` | `${number}.${number}`;
-    reviewCount: 2;
+    reviewCount: number;
     location: string;
     imgUrl: string;
     distanceKm: number | null;
@@ -20,8 +21,12 @@ export interface NightRecommendCategory {
 export type NightRecommendCategoryResponse = GenericAPIResponse<NightRecommendCategory>;
 
 const requestNightRecommendCategory = async (): Promise<NightRecommendCategoryResponse> => {
-  const response = await fetch(`${API_URL}/main/recommend/category`);
-  return response.json();
+  return await requestAPI<NightRecommendCategoryResponse>({
+    url: `${API_URL}/main/recommend/category`,
+    options: {
+      method: 'GET',
+    },
+  });
 };
 
 const keys = {

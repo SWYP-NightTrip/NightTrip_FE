@@ -3,6 +3,7 @@ import { queryOptions as tsqQueryOptions, useSuspenseQuery } from '@tanstack/rea
 import { API_URL } from '@/utils/constant/url';
 
 import type { GenericAPIResponse } from '@/types/api';
+import { requestAPI } from '@/utils/request/request';
 
 export interface NightPopularSpot {
   id: number;
@@ -17,8 +18,12 @@ export interface NightPopularSpot {
 export type NightPopularSpotResponse = GenericAPIResponse<NightPopularSpot[]>;
 
 const requestNightPopularCategory = async (): Promise<NightPopularSpotResponse> => {
-  const response = await fetch(`${API_URL}/main/recommend/night-popular`);
-  return response.json();
+  return await requestAPI<NightPopularSpotResponse>({
+    url: `${API_URL}/main/recommend/night-popular`,
+    options: {
+      method: 'GET',
+    },
+  });
 };
 
 const keys = {
