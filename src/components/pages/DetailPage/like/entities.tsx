@@ -4,28 +4,24 @@ import {
   mutationOptions as tsqMutationOptions,
 } from '@tanstack/react-query';
 
+import { DetailSpotService } from '@/components/pages/DetailPage/detail/entities';
+
 import { API_URL } from '@/utils/constant/url';
+import { requestAPI } from '@/utils/request/request';
 
 import type { GenericAPIResponse } from '@/types/api';
 import type { DetailSpotResponse } from '@/components/pages/DetailPage/detail/entities';
-import { DetailSpotService } from '@/components/pages/DetailPage/detail/entities';
 
 export type LikeResponse = GenericAPIResponse<{ data: null }>;
 
 const requestLike = async (touristSpotId: string): Promise<LikeResponse> => {
-  const response = await fetch(`${API_URL}/touristspot/${touristSpotId}/like`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
+  return await requestAPI<LikeResponse>({
+    url: `${API_URL}/touristspot/${touristSpotId}/like`,
+    options: {
+      method: 'POST',
+      credentials: 'include',
     },
-    credentials: 'include',
   });
-
-  if (!response.ok) {
-    throw new Error(`좋아요 요청 실패: ${response.status} ${response.statusText}`);
-  }
-
-  return response.json();
 };
 
 const keys = {
@@ -62,14 +58,9 @@ export const useLikeMutation = (touristSpotId: string) => {
         },
       );
     },
-    onError: error => {
-      console.error('좋아요 요청 실패:', error);
-      // 에러 처리 (토스트 메시지 등)
-    },
   });
 };
 
-// 사용 예시를 위한 훅
 export const useLike = (touristSpotId: string) => {
   const mutation = useLikeMutation(touristSpotId);
 

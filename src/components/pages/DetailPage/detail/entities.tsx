@@ -4,6 +4,7 @@ import { API_URL } from '@/utils/constant/url';
 
 import type { GenericAPIResponse } from '@/types/api';
 import { getQueryClient } from '@/lib/tanstack/queryClient';
+import { requestAPI } from '@/utils/request/request';
 
 export interface DetailSpot {
   spotName: string;
@@ -28,9 +29,12 @@ export interface DetailSpot {
 export type DetailSpotResponse = GenericAPIResponse<DetailSpot>;
 
 const requestDetailSpot = async (id: string): Promise<DetailSpotResponse> => {
-  const response = await fetch(`${API_URL}/touristspot/${id}`);
-
-  return response.json();
+  return await requestAPI<DetailSpotResponse>({
+    url: `${API_URL}/touristspot/${id}`,
+    options: {
+      method: 'GET',
+    },
+  });
 };
 
 const keys = {

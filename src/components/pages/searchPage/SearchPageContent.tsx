@@ -11,6 +11,7 @@ import ResetInputIcon from '@/icons/reset-input.svg';
 import InputGroup from '@/components/common/InputGroup';
 
 import SearchSuggestions from '@/components/pages/searchPage/searchSuggestion';
+import SearchErrorBoundary from '@/components/pages/searchPage/ui/SearchErrorBoundary';
 
 export default function SearchPageContent() {
   const router = useRouter();
@@ -70,7 +71,9 @@ export default function SearchPageContent() {
         </div>
       </header>
 
-      <SearchSuggestions searchQuery={searchDebouncedQuery} />
+      <SearchErrorBoundary dataType="검색 결과">
+        <SearchSuggestions searchQuery={searchDebouncedQuery} />
+      </SearchErrorBoundary>
     </>
   );
 }

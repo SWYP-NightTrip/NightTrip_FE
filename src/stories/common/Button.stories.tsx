@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import Button from '@/components/common/Button';
 import Image from 'next/image';
-import icon from '../../../public/images/ex_icon.png';
+import icon from '../../../public/images/fallback/partnership_fallback.png';
 
 const meta: Meta<typeof Button> = {
   title: 'design-system/Button',
@@ -18,7 +18,7 @@ const meta: Meta<typeof Button> = {
   },
   decorators: [
     Story => (
-      <div className='w-[343px]'>
+      <div className="w-[343px]">
         <Story />
       </div>
     ),

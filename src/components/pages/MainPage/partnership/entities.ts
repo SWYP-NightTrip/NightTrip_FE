@@ -3,6 +3,7 @@ import { queryOptions as tsqQueryOptions, useSuspenseQuery } from '@tanstack/rea
 import { API_URL } from '@/utils/constant/url';
 
 import type { GenericAPIResponse } from '@/types/api';
+import { requestAPI } from '@/utils/request/request';
 
 export interface Partnership {
   id: number;
@@ -13,8 +14,12 @@ export interface Partnership {
 export type PartnershipResponse = GenericAPIResponse<Partnership[]>;
 
 const requestPartnership = async (): Promise<PartnershipResponse> => {
-  const response = await fetch(`${API_URL}/main/partner-services`);
-  return response.json();
+  return await requestAPI<PartnershipResponse>({
+    url: `${API_URL}/main/partner-services`,
+    options: {
+      method: 'GET',
+    },
+  });
 };
 
 const keys = {
