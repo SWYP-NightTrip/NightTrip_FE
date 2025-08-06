@@ -6,8 +6,6 @@ import {
 
 import { DetailSpotService } from '@/components/pages/DetailPage/detail/entities';
 
-import { useModal } from '@/hooks/useModal';
-
 import { API_URL } from '@/utils/constant/url';
 import { requestAPI } from '@/utils/request/request';
 
@@ -41,7 +39,6 @@ export const likeService = {
 };
 
 export const useLikeMutation = (touristSpotId: string) => {
-  const { modal } = useModal();
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -60,9 +57,6 @@ export const useLikeMutation = (touristSpotId: string) => {
           };
         },
       );
-    },
-    onError: () => {
-      modal.loginError(true);
     },
   });
 };
