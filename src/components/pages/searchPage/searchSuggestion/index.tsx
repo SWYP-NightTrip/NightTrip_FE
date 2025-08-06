@@ -6,6 +6,9 @@ import SearchLink from '@/components/pages/searchPage/ui/SearchLink';
 import RecommendSuggestions from '@/components/pages/searchPage/recommendSuggestion';
 import PopularSuggestion from '@/components/pages/searchPage/popularSuggestion';
 import Spinner from '@/components/pages/searchPage/ui/Spinner';
+
+import SearchErrorBoundary from '@/components/pages/searchPage/ui/SearchErrorBoundary';
+import Image from 'next/image';
 interface SearchSuggestionsProps {
   searchQuery: string;
 }
@@ -22,8 +25,12 @@ export default function SearchSuggestions({ searchQuery }: SearchSuggestionsProp
   if (!isEnabled) {
     return (
       <div className="mt-[44px] px-4 space-y-[50px]">
-        <RecommendSuggestions />
-        <PopularSuggestion />
+        <SearchErrorBoundary dataType="추천 검색어 (여행지)">
+          <RecommendSuggestions />
+        </SearchErrorBoundary>
+        <SearchErrorBoundary dataType="인기 검색어 (여행지)">
+          <PopularSuggestion />
+        </SearchErrorBoundary>
       </div>
     );
   }
@@ -38,10 +45,11 @@ export default function SearchSuggestions({ searchQuery }: SearchSuggestionsProp
 
   if (searchSuggestions?.data.length === 0) {
     return (
-      <div className="mt-[44px] px-4 space-y-[50px]">
-        <p className="text-nt-neutral-400 text-sm font-normal leading-[20px] tracking-[0.014px]">
-          검색 결과가 없습니다.
-        </p>
+      <div className="flex flex-col justify-center items-center h-[calc(100vh-56px)]">
+        <Image src={'/images/rabbit.png'} width={120} height={130} alt="나이트 트립 토끼 로고" />
+        <div className="mt-2.5">
+          <div className="header3 text-nt-neutral-300">검색 결과가 없어요</div>
+        </div>
       </div>
     );
   }

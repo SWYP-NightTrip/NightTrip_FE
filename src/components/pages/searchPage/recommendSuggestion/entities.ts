@@ -1,12 +1,17 @@
 import { queryOptions as tsqQueryOptions, useSuspenseQuery } from '@tanstack/react-query';
 
 import { API_URL } from '@/utils/constant/url';
+import { requestAPI } from '@/utils/request/request';
 
 import type { RecommendSuggestionResponse } from './type';
 
 const requestRecommendSuggestion = async (): Promise<RecommendSuggestionResponse> => {
-  const response = await fetch(`${API_URL}/search/recommend`);
-  return response.json();
+  return await requestAPI<RecommendSuggestionResponse>({
+    url: `${API_URL}/search/recommend`,
+    options: {
+      method: 'GET',
+    },
+  });
 };
 
 const keys = {
