@@ -1,8 +1,12 @@
 'use client';
 
-import Button from '@/components/common/Button';
-import { cn } from '@/lib/shadcn/utils';
 import { useRouter } from 'next/navigation'; // next/navigation에서 useRouter를 임포트
+
+import { cn } from '@/lib/shadcn/utils';
+
+import { API_DOMAIN_URL } from '@/utils/constant/url';
+
+import Button from '@/components/common/Button';
 
 interface LoginButtonProps {
   provider: 'kakao' | 'naver' | 'google' | 'apple';
@@ -16,7 +20,7 @@ export default function LoginButton({ provider, children, className }: LoginButt
   const router = useRouter();
 
   const handleLogin = (provider: LoginButtonProps['provider']) => {
-    router.push(`https://dev.nighttrip.co.kr/oauth2/authorization/${provider}`);
+    router.push(`${API_DOMAIN_URL}/oauth2/authorization/${provider}`);
   };
 
   return (
