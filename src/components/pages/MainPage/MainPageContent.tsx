@@ -7,11 +7,9 @@ import SearchIcon from '@/icons/search.svg';
 import Header from './ui/header';
 import Footer from '@/components/common/footer';
 
-import NightPopularCategory from '@/components/pages/MainPage/category';
-
-import Button from '@/components/common/Button';
 import NightTripPartnership from '@/components/pages/MainPage/partnership';
 import NightPopularSpot from '@/components/pages/MainPage/popular';
+import NightRecommendCategory from '@/components/pages/MainPage/category';
 
 export default function MainPageContent() {
   return (
@@ -41,35 +39,10 @@ export default function MainPageContent() {
           오후에 여행하기 좋은 추천 여행지, 포토스팟 등
         </span>
       </div>
-      <div className="px-4 h-[42px] flex items-center justify-between">
-        <h3 className="font-semibold text-nt-neutral-black leading-6">별이 잘 보이는 캠핑장</h3>
-        <Link
-          className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
-          href="/photo-spots"
-        >
-          더보기
-        </Link>
-      </div>
-      <div className="pl-4 pt-1.5 pb-2.5">
-        <NightPopularCategory />
-      </div>
-      <div className="px-4 h-[42px] flex items-center justify-between">
-        <h3 className="font-semibold text-nt-neutral-black leading-6">야경 포토스팟</h3>
-        <Link
-          className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
-          href="/photo-spots"
-        >
-          더보기
-        </Link>
-      </div>
-      <div className="pl-4 pt-1.5 pb-2.5">
-        <NightPopularSpot />
-      </div>
-      <div className="mt-2.5 px-4 py-2.5">
-        <Button className="w-full">더 많은 추천지 보기</Button>
-      </div>
-      <Footer />
+      <NightPopularSpot />
+      <NightRecommendCategory />
       <div className="w-full h-[100px]"></div> {/* Footer 높이만큼 빈 공간 추가 */}
+      <Footer />
     </div>
   );
 }
