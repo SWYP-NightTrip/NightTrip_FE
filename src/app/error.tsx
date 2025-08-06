@@ -1,62 +1,60 @@
 'use client';
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import BackIcon from '@/icons/back.svg';
+
 import Button from '@/components/common/Button';
+import TopNav from '@/components/common/TopNav';
+import Image from 'next/image';
 
-interface ErrorProps {
-  reset: () => void;
-}
-
-export default function Error({ reset }: ErrorProps) {
+export default function Error() {
   const router = useRouter();
 
   const goHomePage = () => {
     router.push('/');
   };
 
-  const handleRetry = () => {
-    reset();
+  const handleBackClick = () => {
+    if (window.history.length > 1) {
+      router.back();
+    } else {
+      router.push('/');
+    }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-white">
-      <div className="flex flex-col items-center justify-center gap-6 text-center">
-        {/* 에러 아이콘 */}
-        <div className="text-6xl text-nt-gray-300">⚠️</div>
+    <div className="flex flex-col min-h-screen bg-white">
+      <TopNav>
+        <button
+          className="w-[42px] h-[42px] bg-nt-white active:bg-nt-primary-50 p-2 rounded-nt-radius"
+          onClick={handleBackClick}
+        >
+          <BackIcon />
+        </button>
+      </TopNav>
 
-        {/* 메인 메시지 */}
-        <div className="flex flex-col gap-2">
-          <h1 className="header1 text-nt-gray-900">예상치 못한 오류가 발생했어요</h1>
-          <p className="body1 text-nt-gray-600">
-            잠시 후 다시 시도해주세요
-            <br />
-            문제가 지속되면 문의해주세요
-          </p>
+      {/* 메인 콘텐츠 */}
+      <div className="flex flex-col items-center justify-center flex-1 px-4 text-center">
+        <Image
+          src={'/images/error/sad_rabbit.png'}
+          width={120}
+          height={130}
+          alt="나이트 트립 슬픈 토끼 이미지"
+        />
+
+        {/* 텍스트 */}
+        <div className="flex flex-col gap-2 mt-2.5">
+          <h3 className="header3 text-nt-neutral-300">예상하지 못한 오류가 발생했습니다</h3>
+          <p className="body2 text-nt-neutral-300">잠시 후 다시 시도해주세요</p>
         </div>
+      </div>
 
-        {/* 이미지 */}
-        <div className="mt-4">
-          <Image
-            src="/images/rabbit.png"
-            alt="나이트 트립 대표 이미지"
-            width={120}
-            height={130}
-            priority
-          />
-        </div>
-
-        {/* 버튼들 */}
-        <div className="flex flex-col gap-3 w-full max-w-sm mt-8">
-          <Button onClick={handleRetry} className="w-full">
-            다시 시도하기
-          </Button>
-
-          <Button onClick={goHomePage} className="w-full">
-            홈으로 돌아가기
-          </Button>
-        </div>
+      {/* 하단 버튼 */}
+      <div className="px-4 pb-8 mt-8">
+        <Button onClick={goHomePage} className="w-full text-white py-3">
+          메인으로
+        </Button>
       </div>
     </div>
   );

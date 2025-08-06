@@ -1,9 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import BackIcon from '@/icons/back.svg';
+
 import Button from '@/components/common/Button';
+import TopNav from '@/components/common/TopNav';
+import Image from 'next/image';
 
 export default function NotFound() {
   const router = useRouter();
@@ -12,39 +15,46 @@ export default function NotFound() {
     router.push('/');
   };
 
+  const handleBackClick = () => {
+    if (window.history.length > 1) {
+      router.back();
+    } else {
+      router.push('/');
+    }
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-white">
-      <div className="flex flex-col items-center justify-center gap-6 text-center">
-        {/* 404 숫자 */}
-        <div className="text-8xl font-bold text-nt-gray-300">404</div>
+    <div className="flex flex-col min-h-screen bg-white">
+      <TopNav>
+        <button
+          className="w-[42px] h-[42px] bg-nt-white active:bg-nt-primary-50 p-2 rounded-nt-radius"
+          onClick={handleBackClick}
+        >
+          <BackIcon />
+        </button>
+      </TopNav>
 
-        {/* 메인 메시지 */}
-        <div className="flex flex-col gap-2">
-          <h1 className="header1 text-nt-gray-900">페이지를 찾을 수 없어요</h1>
-          <p className="body1 text-nt-gray-600">
-            요청하신 페이지가 존재하지 않거나
-            <br />
-            이동되었을 수 있습니다
-          </p>
-        </div>
+      {/* 메인 콘텐츠 */}
+      <div className="flex flex-col items-center justify-center flex-1 px-4 text-center">
+        <Image
+          src={'/images/error/cry_rabbit.png'}
+          width={120}
+          height={130}
+          alt="나이트 트립 우는 토끼 이미지"
+        />
 
-        {/* 이미지 */}
-        <div className="mt-4">
-          <Image
-            src="/images/rabbit.png"
-            alt="나이트 트립 대표 이미지"
-            width={120}
-            height={130}
-            priority
-          />
+        {/* 텍스트 */}
+        <div className="flex flex-col gap-2 mt-2.5">
+          <h3 className="header3 text-nt-neutral-300">404 에러가 났어요</h3>
+          <p className="body2 text-nt-neutral-300">요청하신 페이지가 없습니다</p>
         </div>
+      </div>
 
-        {/* 버튼들 */}
-        <div className="flex flex-col gap-3 w-full max-w-sm mt-8">
-          <Button onClick={goHomePage} className="w-full">
-            홈으로 돌아가기
-          </Button>
-        </div>
+      {/* 하단 버튼 */}
+      <div className="px-4 pb-8 mt-8">
+        <Button onClick={goHomePage} className="w-full text-white py-3">
+          메인으로
+        </Button>
       </div>
     </div>
   );
