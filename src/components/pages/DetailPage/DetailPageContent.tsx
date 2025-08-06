@@ -1,12 +1,14 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 import TopNav from '@/components/common/TopNav';
 
 import BackIcon from '@/icons/back.svg';
 import AddressIcon from '@/icons/address.svg';
 import PhoneIcon from '@/icons/phone.svg';
+import NightTripTextIcon from '@/icons/nighttrip_text.svg';
 
 import Divider from '@/components/pages/DetailPage/ui/Divider';
 import Map from '@/components/pages/DetailPage/ui/map';
@@ -19,7 +21,6 @@ import EmptyHeartIcon from '@/icons/empty_like.svg';
 
 import { useGetDetailSpot } from '@/components/pages/DetailPage/detail/entities';
 
-import { FALLBACK_CARD_IMAGE_URL } from '@/utils/constant/url';
 import { useLike } from '@/components/pages/DetailPage/like/entities';
 
 interface DetailPageContentProps {
@@ -55,14 +56,22 @@ export default function DetailPageContent({ id }: DetailPageContentProps) {
       </TopNav>
       <div className="py-5 px-4">
         <div className="relative">
-          <ImageCarousel
-            images={
-              detailData.data.spotImages.length === 0
-                ? [FALLBACK_CARD_IMAGE_URL]
-                : detailData.data.spotImages
-            }
-            spotName={detailData.data.spotName}
-          />
+          {detailData.data.spotImages.length > 0 ? (
+            <ImageCarousel
+              images={detailData.data.spotImages}
+              spotName={detailData.data.spotName}
+            />
+          ) : (
+            <div className="w-full h-[200px] bg-nt-neutral-100 flex items-center justify-center flex-col">
+              <Image
+                src={'/images/rabbit.png'}
+                width={100}
+                height={100}
+                alt="나이트 트립 토끼 로고"
+              />
+              <NightTripTextIcon />
+            </div>
+          )}
           <button className="absolute top-4 right-4 cursor-pointer" onClick={toggleLike}>
             {detailData.data.isLiked ? <FillHeartIcon /> : <EmptyHeartIcon />}
           </button>
