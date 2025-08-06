@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Rabbit from '@/icons/rabbit.svg';
 import LoginLogo from '@/icons/login-logo.svg';
 
@@ -48,8 +47,8 @@ export default function LoginPage() {
           <Google />
         </LoginButton>
       </div>
-
-      <div className="w-full my-10 flex flex-col gap-6 justify-center items-center font-medium text-sm">
+      {/* 추후 구현 예정 */}
+      {/* <div className="w-full my-10 flex flex-col gap-6 justify-center items-center font-medium text-sm">
         <div>
           <span>또는</span>
         </div>
@@ -58,7 +57,7 @@ export default function LoginPage() {
           <div className="border-[0.5px] h-[20px] border-nt-neutral-250" />
           <Link href="#">이메일 회원가입</Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
