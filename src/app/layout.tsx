@@ -2,7 +2,6 @@ import './globals.css';
 import Script from 'next/script';
 
 import { pretendard } from '@/utils/font';
-import QueryProvider from '@/lib/tanstack/QueryProvider';
 
 import type { Metadata } from 'next';
 import GlobalProvider from '@/provider/global';
@@ -52,9 +51,7 @@ export default function RootLayout({
       </head>
       <body>
         <main className="mobile-container">
-          <QueryProvider>
-            <GlobalProvider>{children}</GlobalProvider>
-          </QueryProvider>
+          <GlobalProvider>{children}</GlobalProvider>
         </main>
       </body>
     </html>
