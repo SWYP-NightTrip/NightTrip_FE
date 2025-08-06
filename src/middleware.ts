@@ -13,7 +13,7 @@ export const checkIsAuthenticated = async (request: NextRequest) => {
   const sessionCookie = request.cookies.get('SESSION');
 
   try {
-    const res = await fetch(`${API_URL}/v1/oauth/status`, {
+    const res = await fetch(`${API_URL}/oauth/status`, {
       headers: {
         Cookie: `SESSION=${sessionCookie?.value}`,
       },
