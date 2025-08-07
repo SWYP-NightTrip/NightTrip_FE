@@ -14,7 +14,7 @@ export default function NightPopularSpot() {
         <h3 className="font-semibold text-nt-neutral-black leading-6">인기 많은 여행지</h3>
         <Link
           className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
-          href={`/recommend/night-popular/all`}
+          href={`/recommend/loadmore`}
         >
           더보기
         </Link>
