@@ -42,42 +42,73 @@ export interface MoreNightRecommend {
 
 export type MoreNightRecommendResponse = GenericAPIResponse<MoreNightRecommend>;
 
-// const requestMoreNightRecommend = async (type?: string): Promise<MoreNightRecommendResponse>=> {
-//   const url = type
-//     ? `${API_URL}/main/recommend/category/all?type=${encodeURIComponent(type)}`
-//     : `${API_URL}/main/recommend/night-popular/all`;
+const requestInfiniteMoreNightPopular = async ({
+  pageParam = 0,
+}: {
+  pageParam: number;
+}): Promise<MoreNightRecommendResponse> => {
+  // const url = type
+  //   ? `${API_URL}/main/recommend/category/all?type=${encodeURIComponent(type)}&page=${pageParam}&size=6`
+  //   : `${API_URL}/main/recommend/night-popular/all?page=${pageParam}&size=6`;
 
-//   const res = await fetch(url);
-
-//   return res.json();
-// };
-
-// export const useGetMoreNightRecommend = (type?: string) => {
-//   return useQuery({
-//     queryKey: ['moreNightRecommend', type],
-//     queryFn: () => requestMoreNightRecommend(type),
-//   });
-// };
+  const res = await fetch(`${API_URL}/main/recommend/night-popular/all?page=${pageParam}&size=6`);
+  return res.json();
+};
 
 const requestInfiniteMoreNightRecommend = async ({
   pageParam = 0,
   type,
 }: {
-  pageParam?: number;
-  type?: string;
+  pageParam: number;
+  type: string;
 }): Promise<MoreNightRecommendResponse> => {
-  const url = type
-    ? `${API_URL}/main/recommend/category/all?type=${encodeURIComponent(type)}&page=${pageParam}&size=6`
-    : `${API_URL}/main/recommend/night-popular/all?page=${pageParam}&size=6`;
-
-  const res = await fetch(url);
+  const res = await fetch(`${API_URL}/main/recommend/category/all?type=${encodeURIComponent(type)}&page=${pageParam}&size=6`);
   return res.json();
 };
 
-export const useInfiniteMoreNightRecommend = (type?: string) => {
+const requestInfiniteMoreNightRandomRecommend = async ({
+  pageParam = 0,
+  type,
+}: {
+  pageParam: number;
+  type: string;
+}): Promise<MoreNightRecommendResponse> => {
+  const res = await fetch(`${API_URL}/main/recommend/random-category/all?type=${encodeURIComponent(type)}&page=${pageParam}&size=6`);
+  return res.json();
+};
+
+export const useInfiniteMoreNightPopular = () => {
+  return useInfiniteQuery({
+    queryKey: ['moreNightRecommend', 'popular'],
+    queryFn: ({ pageParam = 0 }) => requestInfiniteMoreNightPopular({ pageParam }),
+    initialPageParam: 0,
+    getNextPageParam: lastPage => {
+      if (lastPage && lastPage.data && lastPage.data.last === false) {
+        return lastPage.data.number + 1;
+      }
+      return undefined;
+    },
+  });
+};
+
+export const useInfiniteMoreNightRecommend = (type: string) => {
   return useInfiniteQuery({
     queryKey: ['moreNightRecommend', type],
     queryFn: ({ pageParam = 0 }) => requestInfiniteMoreNightRecommend({ pageParam, type }),
+    initialPageParam: 0,
+    getNextPageParam: lastPage => {
+      if (lastPage && lastPage.data && lastPage.data.last === false) {
+        return lastPage.data.number + 1;
+      }
+      return undefined;
+    },
+  });
+};
+
+export const useInfiniteMoreNightRandomRecommend = (type: string) => {
+  return useInfiniteQuery({
+    queryKey: ['moreNightRecommend', type],
+    queryFn: ({ pageParam = 0 }) => requestInfiniteMoreNightRandomRecommend({ pageParam, type }),
     initialPageParam: 0,
     getNextPageParam: lastPage => {
       if (lastPage && lastPage.data && lastPage.data.last === false) {

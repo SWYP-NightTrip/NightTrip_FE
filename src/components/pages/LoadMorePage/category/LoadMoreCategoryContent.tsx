@@ -6,7 +6,7 @@ import TripCard from '@/components/pages/LoadMorePage/ui/TripCard';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
-export default function LoadMorePageContent() {
+export default function LoadMoreCategoryContent() {
   const searchParams = useSearchParams();
   const type = searchParams.get('type') ?? '';
 
@@ -14,6 +14,7 @@ export default function LoadMorePageContent() {
     useInfiniteMoreNightRecommend(type);
 
   const observerRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     if (!hasNextPage || isFetchingNextPage) return;
     const observer = new window.IntersectionObserver(entries => {
