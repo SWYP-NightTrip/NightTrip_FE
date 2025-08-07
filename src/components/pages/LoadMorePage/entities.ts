@@ -93,7 +93,7 @@ export const useInfiniteMoreNightPopular = () => {
 
 export const useInfiniteMoreNightRecommend = (type: string) => {
   return useInfiniteQuery({
-    queryKey: ['moreNightRecommend', type],
+    queryKey: ['moreNightRecommend', 'recommend', type],
     queryFn: ({ pageParam = 0 }) => requestInfiniteMoreNightRecommend({ pageParam, type }),
     initialPageParam: 0,
     getNextPageParam: lastPage => {
@@ -107,7 +107,7 @@ export const useInfiniteMoreNightRecommend = (type: string) => {
 
 export const useInfiniteMoreNightRandomRecommend = (type: string) => {
   return useInfiniteQuery({
-    queryKey: ['moreNightRecommend', type],
+    queryKey: ['moreNightRecommend', 'random-recommend', type],
     queryFn: ({ pageParam = 0 }) => requestInfiniteMoreNightRandomRecommend({ pageParam, type }),
     initialPageParam: 0,
     getNextPageParam: lastPage => {
