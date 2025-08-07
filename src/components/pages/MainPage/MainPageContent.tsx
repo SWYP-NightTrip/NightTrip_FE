@@ -11,8 +11,11 @@ import NightTripPartnership from '@/components/pages/MainPage/partnership';
 import NightPopularSpot from '@/components/pages/MainPage/popular';
 import NightRecommendCategory from '@/components/pages/MainPage/category';
 import MainErrorBoundary from '@/components/pages/MainPage/ui/MainErrorBoundary';
+import Button from '@/components/common/Button';
+import { useRouter } from 'next/navigation';
 
 export default function MainPageContent() {
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-white relative">
       <Header />
@@ -48,6 +51,9 @@ export default function MainPageContent() {
       <MainErrorBoundary dataType="추천 여행지">
         <NightRecommendCategory />
       </MainErrorBoundary>
+      <div className='py-2.5 px-4 mt-2'>
+        <Button onClick={() => router.push('/recommend')}>더 많은 추천지 보기</Button>
+      </div>
       <div className="w-full h-[100px]"></div> {/* Footer 높이만큼 빈 공간 추가 */}
       <Footer />
     </div>
