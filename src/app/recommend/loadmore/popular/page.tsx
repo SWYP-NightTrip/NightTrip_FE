@@ -1,5 +1,5 @@
-import LoadMorePage from "@/components/pages/LoadMorePage/popular";
+import LoadMorePage from '@/components/pages/LoadMorePage/PopularPage';
 
 export default function LoadMore() {
-  return <LoadMorePage />
+  return <LoadMorePage />;
 }

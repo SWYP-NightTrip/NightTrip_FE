@@ -1,4 +1,4 @@
-import LoadMoreCategoryPage from '@/components/pages/LoadMorePage/category';
+import LoadMoreCategoryPage from '@/components/pages/LoadMorePage/CategoryPage';
 
 export default function page() {
   return <LoadMoreCategoryPage />;
