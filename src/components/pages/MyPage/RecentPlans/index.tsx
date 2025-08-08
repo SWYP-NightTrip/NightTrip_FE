@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import icon from '@/images/calendar.png';
 import RabbitCurious from '@/icons/rabbit-curious.svg';
-import { useGetMyPageRecentPlans } from '@/components/pages/MyPage/RecentPlans/entities';
+import { useGetMyPageProfile } from '@/components/pages/MyPage/entities';
 import { getDDay, getPlanPeriod } from '@/components/pages/MyPage/mapping/mapping';
 
 export default function RecentPlans() {
-  const { data } = useGetMyPageRecentPlans();
+  const { data } = useGetMyPageProfile();
   const recentPlans = data?.data?.recentPlans ?? [];
-  
+
   const period = getPlanPeriod(recentPlans[0]?.startDate, recentPlans[0]?.endDate);
   const dDay = getDDay(recentPlans[0]?.startDate);
 

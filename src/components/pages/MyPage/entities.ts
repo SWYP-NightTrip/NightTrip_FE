@@ -1,6 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
-import { API_URL } from '@/utils/constant/url';
 import type { GenericAPIResponse } from '@/types/api';
+import { API_URL } from '@/utils/constant/url';
+import { useQuery } from '@tanstack/react-query';
 
 export interface MyPageProps {
   userName: string;
@@ -17,9 +17,9 @@ export interface MyPageProps {
   }[];
 }
 
-export type MyPageResponse = GenericAPIResponse<{ recentPlans: MyPageProps['recentPlans'] }>;
+export type MyPageResponse = GenericAPIResponse<MyPageProps>;
 
-const requestMyPageRecentPlans = async (): Promise<MyPageResponse> => {
+const requestMyPageProfile = async (): Promise<MyPageResponse> => {
   const res = await fetch(`${API_URL}/user/mypage`, {
     credentials: 'include',
   });
@@ -27,9 +27,9 @@ const requestMyPageRecentPlans = async (): Promise<MyPageResponse> => {
   return res.json();
 };
 
-export const useGetMyPageRecentPlans = () => {
+export const useGetMyPageProfile = () => {
   return useQuery({
-    queryKey: ['mypage', 'recent-plans'],
-    queryFn: requestMyPageRecentPlans,
+    queryKey: ['user', 'myPage'],
+    queryFn: requestMyPageProfile,
   });
 };

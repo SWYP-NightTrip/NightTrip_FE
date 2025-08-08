@@ -1,5 +1,5 @@
 import Badge from '@/components/common/Badge';
-import { useGetMyPageProfile } from '@/components/pages/MyPage/profile/entities';
+import { useGetMyPageProfile } from '@/components/pages/MyPage/entities';
 import Header from '@/components/pages/MyPage/ui/header';
 import Image from 'next/image';
 import Link from 'next/link';
