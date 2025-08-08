@@ -1,10 +1,8 @@
-import Link from 'next/link';
 import Rabbit from '@/icons/rabbit.svg';
 import LoginLogo from '@/icons/login-logo.svg';
 
 import Naver from '@/icons/naver.svg';
 import Google from '@/icons/google.svg';
-import Apple from '@/icons/apple.svg';
 import Kakao from '@/icons/kakao.svg';
 import Header from '@/components/pages/LoginPage/ui/header';
 import LoginButton from '@/components/pages/LoginPage/ui/LoginButton';
@@ -48,24 +46,18 @@ export default function LoginPage() {
         >
           <Google />
         </LoginButton>
-        <LoginButton
-          provider="apple"
-          className="bg-[#000000] active:bg-[#DEDEDE] hover:bg-[#000000]"
-        >
-          <Apple className="-translate-y-0.5" />
-        </LoginButton>
       </div>
-
-      <div className="m-10 flex flex-col gap-6 justify-center items-center font-medium text-sm">
+      {/* 추후 구현 예정 */}
+      {/* <div className="w-full my-10 flex flex-col gap-6 justify-center items-center font-medium text-sm">
         <div>
           <span>또는</span>
         </div>
-        <div className="flex gap-8">
+        <div className="flex gap-8 translate-x-1">
           <Link href="#">이메일 로그인</Link>
           <div className="border-[0.5px] h-[20px] border-nt-neutral-250" />
-          <Link href="#">회원가입</Link>
+          <Link href="#">이메일 회원가입</Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
