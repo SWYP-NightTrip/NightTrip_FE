@@ -18,7 +18,7 @@ export default function NightRecommendCategory() {
         {recommendedSpots.data.isMore && (
           <Link
             className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
-            href={`/recommend/category/all?type=${recommendedSpots.data.category}`}
+            href={`/recommend/loadmore/category/all?type=${recommendedSpots.data.category}`}
           >
             더보기
           </Link>
@@ -32,7 +32,7 @@ export default function NightRecommendCategory() {
           className="w-full"
         >
           <CarouselContent className="flex gap-[12px] -ml-0">
-            {recommendedSpots.data.spots.map(spot => (
+            {recommendedSpots.data.spots?.map(spot => (
               <CarouselItem key={spot.id} className="basis-auto p-0">
                 <TripCard tripSpot={spot} />
               </CarouselItem>

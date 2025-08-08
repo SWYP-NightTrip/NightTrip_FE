@@ -4,7 +4,9 @@ import Link from 'next/link';
 import Back from '@/icons/back.svg';
 import { useRouter } from 'next/navigation';
 
-export default function Header() {
+export default function Header({ title }: { title: string }) {
+  const headerTitle = title || '나잇트립 인기 여행지';
+
   const router = useRouter();
 
   const handleBackClick = () => {
@@ -23,7 +25,7 @@ export default function Header() {
         </Button>
       </Link>
 
-      <p className="mx-auto header2">나잇트립 추천 여행지</p>
+      <p className="mx-auto header2">{headerTitle}</p>
 
       <div className="w-[42px]" />
     </TopNav>

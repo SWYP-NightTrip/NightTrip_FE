@@ -15,7 +15,7 @@ export default function NightPopularSpot() {
         {nightPopularSpots.data.isMore && (
           <Link
             className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
-            href={`/recommend/night-popular/all`}
+            href={`/recommend/loadmore/popular`}
           >
             더보기
           </Link>
@@ -29,7 +29,7 @@ export default function NightPopularSpot() {
           className="w-full"
         >
           <CarouselContent className="flex gap-[14px] -ml-0">
-            {nightPopularSpots.data.spots.map(spot => (
+            {nightPopularSpots.data.spots?.map(spot => (
               <CarouselItem key={spot.id} className="basis-auto p-0">
                 <TripCard tripSpot={spot} />
               </CarouselItem>
