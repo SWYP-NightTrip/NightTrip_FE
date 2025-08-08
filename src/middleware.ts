@@ -2,10 +2,11 @@ import { API_URL } from '@/utils/constant/url';
 
 import { NextResponse, type NextRequest } from 'next/server';
 
-const AUTHENTICATED_ROUTES = ['/my', '/likes'];
+const AUTHENTICATED_ROUTES = ['/my'];
 const UNAUTHENTICATED_ROUTES = ['/login'];
 
-const isAuthenticatedRoute = (pathname: string) => AUTHENTICATED_ROUTES.includes(pathname);
+const isAuthenticatedRoute = (pathname: string) =>
+  AUTHENTICATED_ROUTES.includes(pathname) || pathname.startsWith('/my');
 
 const isUnauthenticatedRoute = (pathname: string) => UNAUTHENTICATED_ROUTES.includes(pathname);
 
@@ -44,5 +45,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/my', '/likes', '/login'],
+  matcher: ['/my/:path*', '/login'],
 };
