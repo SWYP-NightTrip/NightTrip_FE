@@ -15,12 +15,14 @@ export default function NightRecommendCategory() {
         <h3 className="font-semibold text-nt-neutral-black leading-6">
           {recommendedSpots.data.category}
         </h3>
-        <Link
-          className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
-          href={`/recommend/loadmore/category/?type=${recommendedSpots.data.category}`}
-        >
-          더보기
-        </Link>
+        {recommendedSpots.data.isMore && (
+          <Link
+            className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
+            href={`/recommend/category/all?type=${recommendedSpots.data.category}`}
+          >
+            더보기
+          </Link>
+        )}
       </div>
       <div className="pl-4 pt-1.5 pb-2.5">
         <Carousel
