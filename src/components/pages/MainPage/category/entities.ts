@@ -16,6 +16,8 @@ export interface NightRecommendCategory {
     imgUrl: string;
     distanceKm: number | null;
   }[];
+  isMore: boolean;
+  nickname: string | null;
 }
 
 export type NightRecommendCategoryResponse = GenericAPIResponse<NightRecommendCategory>;
