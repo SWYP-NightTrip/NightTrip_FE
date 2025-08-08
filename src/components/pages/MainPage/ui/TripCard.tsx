@@ -49,7 +49,7 @@ export default function TripCard({ tripSpot }: TripCardProps) {
             </span>
           </div>
         </div>
-        <p className="text-sm leading-5 text-nt-neutral-400 tracking-[0.014px]">
+        <p className="text-sm leading-5 text-nt-neutral-400 tracking-[0.014px] overflow-hidden text-ellipsis whitespace-nowrap max-w-[150px]">
           {tripSpot.location}
         </p>
       </PhotoCard.Content>
