@@ -29,7 +29,7 @@ export default function NightPopularSpot() {
           className="w-full"
         >
           <CarouselContent className="flex gap-[14px] -ml-0">
-            {nightPopularSpots.data.spots.map(spot => (
+            {nightPopularSpots.data.spots?.map(spot => (
               <CarouselItem key={spot.id} className="basis-auto p-0">
                 <TripCard tripSpot={spot} />
               </CarouselItem>

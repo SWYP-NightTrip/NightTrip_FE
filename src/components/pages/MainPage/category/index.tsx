@@ -32,7 +32,7 @@ export default function NightRecommendCategory() {
           className="w-full"
         >
           <CarouselContent className="flex gap-[12px] -ml-0">
-            {recommendedSpots.data.spots.map(spot => (
+            {recommendedSpots.data.spots?.map(spot => (
               <CarouselItem key={spot.id} className="basis-auto p-0">
                 <TripCard tripSpot={spot} />
               </CarouselItem>

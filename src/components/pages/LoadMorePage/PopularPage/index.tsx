@@ -1,5 +1,10 @@
 import LoadMorePageContent from '@/components/pages/LoadMorePage/PopularPage/LoadMorePageContent';
+import { Suspense } from 'react';
 
 export default function LoadMorePage() {
-  return <LoadMorePageContent />;
+  return (
+    <Suspense>
+      <LoadMorePageContent />
+    </Suspense>
+  );
 }
