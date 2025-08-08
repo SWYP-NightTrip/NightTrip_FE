@@ -15,7 +15,10 @@ export interface NightPopularSpot {
   distanceKm: number | null;
 }
 
-export type NightPopularSpotResponse = GenericAPIResponse<NightPopularSpot[]>;
+export type NightPopularSpotResponse = GenericAPIResponse<{
+  spots: NightPopularSpot[];
+  isMore: boolean;
+}>;
 
 const requestNightPopularCategory = async (): Promise<NightPopularSpotResponse> => {
   return await requestAPI<NightPopularSpotResponse>({
