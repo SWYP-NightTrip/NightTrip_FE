@@ -47,10 +47,6 @@ const requestInfiniteMoreNightPopular = async ({
 }: {
   pageParam: number;
 }): Promise<MoreNightRecommendResponse> => {
-  // const url = type
-  //   ? `${API_URL}/main/recommend/category/all?type=${encodeURIComponent(type)}&page=${pageParam}&size=6`
-  //   : `${API_URL}/main/recommend/night-popular/all?page=${pageParam}&size=6`;
-
   const res = await fetch(`${API_URL}/main/recommend/night-popular/all?page=${pageParam}&size=6`);
   return res.json();
 };
