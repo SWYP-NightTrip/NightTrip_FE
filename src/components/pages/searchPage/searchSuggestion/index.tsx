@@ -1,26 +1,27 @@
-import { useRouter } from 'next/navigation';
-
-import { useGetSearchSuggestion } from '@/components/pages/searchPage/searchSuggestion/entities';
+import Image from 'next/image';
 
 import SearchLink from '@/components/pages/searchPage/ui/SearchLink';
 import RecommendSuggestions from '@/components/pages/searchPage/recommendSuggestion';
 import PopularSuggestion from '@/components/pages/searchPage/popularSuggestion';
 import Spinner from '@/components/pages/searchPage/ui/Spinner';
-
 import SearchErrorBoundary from '@/components/pages/searchPage/ui/SearchErrorBoundary';
-import Image from 'next/image';
+
+import { useGetSearchSuggestion } from '@/components/pages/searchPage/searchSuggestion/entities';
 interface SearchSuggestionsProps {
   searchQuery: string;
 }
 
 export default function SearchSuggestions({ searchQuery }: SearchSuggestionsProps) {
-  const { isLoading, data: searchSuggestions, isEnabled } = useGetSearchSuggestion(searchQuery);
+  const {
+    isLoading,
+    data: searchSuggestions,
+    isEnabled,
+    error,
+  } = useGetSearchSuggestion(searchQuery);
 
-  const router = useRouter();
-
-  const handleSearch = (id: string) => () => {
-    router.push(`/trip/${id}`);
-  };
+  if (error) {
+    throw error; // Error Boundary가 잡을 수 있도록 에러를 다시 던짐
+  }
 
   if (!isEnabled) {
     return (
@@ -59,7 +60,6 @@ export default function SearchSuggestions({ searchQuery }: SearchSuggestionsProp
       {searchSuggestions?.data.map(suggestion => (
         <div
           key={suggestion.id}
-          onClick={handleSearch(suggestion.id)}
           className="flex items-center gap-4 px-4 cursor-pointer w-full h-[60px] hover:bg-nt-neutral-100 active:bg-nt-primary-600"
         >
           <SearchLink searchSuggestionData={suggestion} />

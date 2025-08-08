@@ -13,7 +13,7 @@ export default function SearchLink({ searchSuggestionData }: SearchLinkProps) {
   const router = useRouter();
 
   const navigateTo = () => {
-    router.push(`/trip/${searchSuggestionData.id}`);
+    router.push(`/detail/${searchSuggestionData.id.replace(/^tourist_spot_/, '')}`);
   };
 
   return (
