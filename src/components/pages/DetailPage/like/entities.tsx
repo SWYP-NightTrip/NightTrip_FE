@@ -57,6 +57,8 @@ export const useLikeMutation = (touristSpotId: string) => {
           };
         },
       );
+
+      queryClient.invalidateQueries({ queryKey: ['user', 'myPage'] });
     },
   });
 };
