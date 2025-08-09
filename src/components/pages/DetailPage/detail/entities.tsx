@@ -23,7 +23,10 @@ export interface DetailSpot {
   mainImage: string | null;
   isLiked: boolean;
   spotImages: string[];
-  spotDetails: string[];
+  spotDetails: {
+    type: string,
+    label: string
+  }[];
 }
 
 export type DetailSpotResponse = GenericAPIResponse<DetailSpot>;

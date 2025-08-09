@@ -124,8 +124,8 @@ export default function DetailPageContent({ id }: DetailPageContentProps) {
           <div className="header3 text-nt-neutral-900">상세정보</div>
           {detailData.data.spotDetails.length === 0 && '없음'}
           {detailData.data.spotDetails.map(detail => (
-            <div key={detail} className="flex flex-col gap-1.5 px-4 py-2.5">
-              <span className="body2 text-nt-neutral-400">{detail}</span>
+            <div key={detail.type} className="flex flex-col gap-1.5 px-4 py-2.5">
+              <span className="body2 text-nt-neutral-400">{detail.label}</span>
             </div>
           ))}
         </div>
