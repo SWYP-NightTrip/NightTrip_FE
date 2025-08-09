@@ -2,10 +2,16 @@ import Button from '@/components/common/Button';
 import TopNav from '@/components/common/TopNav';
 import Link from 'next/link';
 import Back from '@/icons/back.svg';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
-export default function Header({ title }: { title: string }) {
-  const headerTitle = title || '나잇트립 인기 여행지';
+export default function Header({ title }: { title?: string }) {
+  const pathname = usePathname();
+  const isCategory = pathname.includes('/category');
+  const headerTitle = title
+    ? isCategory
+      ? `회원님을 위한 [${title}] 추천`
+      : `나잇트립이 엄선한 [${title}] 추천`
+    : '밤에 떠나기 좋은 추천 여행지';
 
   const router = useRouter();
 
