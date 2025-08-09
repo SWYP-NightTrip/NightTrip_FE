@@ -11,7 +11,7 @@ export default function NightRandomRecommendCategory() {
     <>
       <div className="px-4 h-[42px] flex items-center justify-between">
         <h3 className="font-semibold text-nt-neutral-black leading-6">
-          {randomCategoryData.category}
+          나잇트립이 엄선한 [{randomCategoryData.category}] 추천
         </h3>
         <Link
           className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
