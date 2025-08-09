@@ -3,13 +3,9 @@
 import { useInfiniteMoreNightPopular } from '@/components/pages/LoadMorePage/entities';
 import Header from '@/components/pages/LoadMorePage/ui/Header';
 import TripCard from '@/components/pages/LoadMorePage/ui/TripCard';
-import { useSearchParams } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
 export default function LoadMorePageContent() {
-  const searchParams = useSearchParams();
-  const type = searchParams.get('type') ?? '';
-
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteMoreNightPopular();
 
   const observerRef = useRef<HTMLDivElement | null>(null);
@@ -35,7 +31,7 @@ export default function LoadMorePageContent() {
 
   return (
     <div>
-      <Header title={type} />
+      <Header />
       <div className="flex flex-wrap justify-between p-3">
         {allContent.map((content, idx) => (
           <div key={content.id ?? idx} className="w-[162px] h-[218px]">

@@ -13,7 +13,7 @@ export default function NightRecommendCategory() {
     <>
       <div className="px-4 h-[42px] flex items-center justify-between">
         <h3 className="font-semibold text-nt-neutral-black leading-6">
-          {recommendedSpots.data.category}
+          회원님을 위한 [{recommendedSpots.data.category}] 추천
         </h3>
         {recommendedSpots.data.isMore && (
           <Link

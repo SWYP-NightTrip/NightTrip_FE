@@ -11,7 +11,7 @@ export default function NightPopularSpot() {
   return (
     <>
       <div className="px-4 h-[42px] flex items-center justify-between">
-        <h3 className="font-semibold text-nt-neutral-black leading-6">인기 많은 여행지</h3>
+        <h3 className="font-semibold text-nt-neutral-black leading-6">밤에 떠나기 좋은 추천 여행지</h3>
         {nightPopularSpots.data.isMore && (
           <Link
             className="text-sm text-[#5B58C2] active:bg-nt-primary-50 p-1 rounded-nt-radius"
