@@ -7,9 +7,12 @@ interface ModalContentProps extends React.ComponentProps<typeof DialogContent> {
 
 export default function ModalContent({ title, children, ...rest }: ModalContentProps) {
   return (
-    <DialogContent {...rest}>
-      <Nav title={title} />
-      {children}
-    </DialogContent>
+    <>
+      <div className="fixed inset-0 bg-black/60 z-[9998]" />
+      <DialogContent {...rest}>
+        <Nav title={title} />
+        {children}
+      </DialogContent>
+    </>
   );
 }
