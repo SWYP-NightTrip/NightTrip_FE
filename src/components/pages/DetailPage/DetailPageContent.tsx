@@ -3,8 +3,6 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-import TopNav from '@/components/common/TopNav';
-
 import BackIcon from '@/icons/back.svg';
 import AddressIcon from '@/icons/address.svg';
 import PhoneIcon from '@/icons/phone.svg';
@@ -44,16 +42,18 @@ export default function DetailPageContent({ id }: DetailPageContentProps) {
 
   return (
     <>
-      <TopNav>
+      <header className="w-full h-[42px] flex items-center justify-between">
         <button
           onClick={handleBackClick}
           className="w-[42px] h-[42px] bg-nt-white active:bg-nt-primary-50 p-2 rounded-nt-radius"
         >
           <BackIcon />
         </button>
-        <p className="mx-auto header2">{detailData.data.spotName}</p>
-        <div />
-      </TopNav>
+        <p className="max-w-[300px] header2 text-center overflow-hidden text-ellipsis whitespace-nowrap">
+          {detailData.data.spotName}
+        </p>
+        <div className="w-[42px] h-[42px]" />
+      </header>
       <div className="py-5 px-4">
         <div className="relative">
           {detailData.data.spotImages.length > 0 ? (
