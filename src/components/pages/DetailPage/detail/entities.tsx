@@ -23,7 +23,10 @@ export interface DetailSpot {
   mainImage: string | null;
   isLiked: boolean;
   spotImages: string[];
-  spotDetails: string[];
+  spotDetails: {
+    type: string,
+    label: string
+  }[];
 }
 
 export type DetailSpotResponse = GenericAPIResponse<DetailSpot>;
@@ -33,6 +36,7 @@ const requestDetailSpot = async (id: string): Promise<DetailSpotResponse> => {
     url: `${API_URL}/touristspot/${id}`,
     options: {
       method: 'GET',
+      credentials: 'include',
     },
   });
 };

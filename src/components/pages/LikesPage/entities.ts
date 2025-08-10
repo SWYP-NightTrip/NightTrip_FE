@@ -62,5 +62,6 @@ export const useInfiniteLikeLists = () => {
       }
       return undefined;
     },
+    staleTime: 0,
   });
 };
