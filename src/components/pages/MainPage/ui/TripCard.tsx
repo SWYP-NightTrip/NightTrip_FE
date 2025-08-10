@@ -39,10 +39,10 @@ export default function TripCard({ tripSpot }: TripCardProps) {
 
       <PhotoCard.Content className="mt-2.5">
         <div className="flex justify-between">
-          <h3 className="font-semibold text-nt-neutral-black leading-6 max-w-[80px] overflow-hidden text-ellipsis whitespace-nowrap">
+          <h3 className="header4 max-w-[80px] overflow-hidden text-ellipsis whitespace-nowrap">
             {tripSpot.name}
           </h3>
-          <div className="flex items-center mb-1">
+          <div className="flex items-center">
             <StarIcon />
             <span className="text-xs text-nt-neutral-400 leading-4 tracking-[0.06px]">
               {tripSpot.stars} ({tripSpot.reviewCount})
