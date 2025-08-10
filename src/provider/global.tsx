@@ -9,7 +9,7 @@ function ModalProvider({ children }: { children: React.ReactNode }) {
   const { isOpen, modal, content } = useModal();
 
   return (
-    <Modal.Wrapper open={isOpen} onOpenChange={modal.loginError}>
+    <Modal.Wrapper open={isOpen} onOpenChange={modal.loginError} modal={false}>
       {children}
       {content}
     </Modal.Wrapper>
