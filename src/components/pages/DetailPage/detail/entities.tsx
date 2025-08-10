@@ -24,8 +24,8 @@ export interface DetailSpot {
   isLiked: boolean;
   spotImages: string[];
   spotDetails: {
-    type: string,
-    label: string
+    type: string;
+    label: string;
   }[];
 }
 

@@ -46,12 +46,16 @@ export default function MainPageContent() {
         </span>
       </div>
       <MainErrorBoundary dataType="인기 여행지">
-        <NightPopularSpot />
+        <div className="mt-3">
+          <NightPopularSpot />
+        </div>
       </MainErrorBoundary>
       <MainErrorBoundary dataType="추천 여행지">
-        <NightRecommendCategory />
+        <div className="mt-3">
+          <NightRecommendCategory />
+        </div>
       </MainErrorBoundary>
-      <div className='py-2.5 px-4 mt-2'>
+      <div className="py-2.5 px-4 mt-2.5">
         <Button onClick={() => router.push('/recommend')}>더 많은 추천지 보기</Button>
       </div>
       <div className="w-full h-[100px]"></div> {/* Footer 높이만큼 빈 공간 추가 */}
