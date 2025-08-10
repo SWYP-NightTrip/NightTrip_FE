@@ -8,6 +8,7 @@ import { requestAPI } from '@/utils/request/request';
 
 export interface DetailSpot {
   spotName: string;
+  region: string;
   address: string;
   checkCount: number | null;
   mainWeight: number;
@@ -23,6 +24,7 @@ export interface DetailSpot {
   mainImage: string | null;
   isLiked: boolean;
   spotImages: string[];
+  hashTags: string[];
   spotDetails: {
     type: string;
     label: string;

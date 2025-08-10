@@ -79,7 +79,10 @@ export default function DetailPageContent({ id }: DetailPageContentProps) {
       </div>
       <div className="px-4">
         <div className="p-2.5">
-          <div className="flex gap-2.5">
+          <div className="body2 flex-1 w-[224px] h-[20px] text-nt-neutral-400">
+            {detailData.data.category} • {detailData.data.region}
+          </div>
+          <div className="flex gap-2.5 mt-0.5">
             <div className="header2 flex-1 w-[224px] h-[28px]">{detailData.data.spotName}</div>
             <div className="flex items-center mb-1">
               <StarIcon />
@@ -109,9 +112,14 @@ export default function DetailPageContent({ id }: DetailPageContentProps) {
         </div>
         <div className="mt-1.5">
           <div className="flex gap-2.5">
-            <div className="body4 text-nt-neutral-400 px-2 py-1.5 bg-nt-neutral-100 rounded-full">
-              {detailData.data.category}
-            </div>
+            {detailData.data.hashTags.map(tag => (
+              <span
+                key={tag}
+                className="body4 text-nt-neutral-400 px-2 py-1.5 bg-nt-neutral-100 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </div>
