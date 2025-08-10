@@ -36,6 +36,7 @@ const requestDetailSpot = async (id: string): Promise<DetailSpotResponse> => {
     url: `${API_URL}/touristspot/${id}`,
     options: {
       method: 'GET',
+      credentials: 'include',
     },
   });
 };

@@ -31,5 +31,6 @@ export const useGetMyPageProfile = () => {
   return useQuery({
     queryKey: ['user', 'myPage'],
     queryFn: requestMyPageProfile,
+    staleTime: 0,
   });
 };
