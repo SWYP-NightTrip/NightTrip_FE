@@ -231,6 +231,10 @@
     @apply font-semibold leading-[24px];
   }
 
+  .header5 {
+    @apply !font-semibold leading-[22px];
+  }
+
   .body1 {
     @apply text-base font-normal leading-6;
   }
