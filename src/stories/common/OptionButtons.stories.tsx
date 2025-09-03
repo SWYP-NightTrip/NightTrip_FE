@@ -21,7 +21,7 @@ type Story = StoryObj<typeof OptionButtons>;
 
 export const Default: Story = {
   render: () => {
-    const [selected, setSelected] = useState('two');
+    const [selected, setSelected] = useState('one');
     return (
       <OptionButtons
         options={[
