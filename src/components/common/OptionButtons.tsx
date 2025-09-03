@@ -19,7 +19,7 @@ export default function OptionButtons({ options, value, onChange, className }: O
     <RadioGroup value={value} onValueChange={onChange} className={cn('flex flex-wrap gap-5', className)}>
       {options.map(option => (
         <div key={option.value} className="flex items-center">
-          <RadioGroupItem value={option.value} id={option.value} className="hidden" />
+          <RadioGroupItem value={option.value} id={option.value} className="sr-only" />
           <Label
             htmlFor={option.value}
             className={cn(
