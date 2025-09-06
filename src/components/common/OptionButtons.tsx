@@ -9,7 +9,7 @@ interface Option {
 
 interface OptionButtonsProps {
   options: Option[];
-  value?: string;
+  value?: string | null;
   onChange?: (value: string) => void;
   className?: string;
 }
@@ -27,7 +27,7 @@ export default function OptionButtons({ options, value, onChange, className }: O
           <Label
             htmlFor={option.value}
             className={cn(
-              'px-4 py-2 h-[42px] rounded-[10px] header5 cursor-pointer transition-colors hover:bg-nt-neutral-100 hover:text-nt-neutral-400 text-nt-neutral-400',
+              'px-3.5 py-2.5 h-[42px] rounded-[10px] header5 cursor-pointer transition-colors hover:bg-nt-neutral-100 hover:text-nt-neutral-400 text-nt-neutral-400',
               value === option.value
                 ? 'bg-[#c8c7f0] border-1 border-nt-primary-400 text-nt-neutral-white'
                 : 'bg-nt-neutral-250',
