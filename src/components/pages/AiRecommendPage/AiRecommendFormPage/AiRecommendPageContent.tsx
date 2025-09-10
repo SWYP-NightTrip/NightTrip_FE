@@ -6,6 +6,7 @@ import Distractor from '@/components/pages/AiRecommendPage/AiRecommendFormPage/u
 import Button from '@/components/common/Button';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { API_URL } from '@/utils/constant/url';
 
 const CityOptions = [
   { value: 'capital', label: '수도권 (서울, 인천, 경기)' },
@@ -99,6 +100,56 @@ export default function AiRecommendFormPageContent() {
     extras: '',
   });
 
+  const handleRecommend = async () => {
+    try {
+      const res = await fetch(`${API_URL}/recommend/sections`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          cityId: cityLabel,
+          purpose: purposeLabel,
+          budgetLevel: budgetLabel,
+          groupSize: groupSizeLabel,
+          extras: form.extras,
+        }),
+      });
+
+      if (!res.ok) {
+        alert('AI 추천 요청에 실패했습니다.');
+        return;
+      }
+      const result = await res.json();
+
+      sessionStorage.setItem('recommendResults', JSON.stringify(result.data));
+
+      router.push('/ai-recommend/results');
+    } catch (error) {
+      console.log('네트워크 오류가 발생했습니다.', error);
+    }
+  };
+
+  const getLabel = (
+    options: { value: string; label: string }[] | undefined,
+    value: string | null,
+  ) => {
+    return options?.find(option => option.value === value)?.label || '';
+  };
+
+  const cityLabel = (() => {
+    const region = Object.keys(CityDetailOptionsMap).find(region =>
+      CityDetailOptionsMap[region].some(opt => opt.value === form.cityId),
+    );
+    if (!region) return '';
+    return CityDetailOptionsMap[region].find(opt => opt.value === form.cityId)?.label ?? '';
+  })();
+  const budgetLabel = getLabel(BudgetOptions, form.budgetLevel);
+  const purposeLabel = getLabel(TravelStyleOptions, form.purpose);
+  const groupSizeLabel = getLabel(TravelGroupOptions, form.groupSize);
+
   return (
     <div className="flex flex-col items-center bg-nt-primary-50 min-h-screen">
       <Header title="AI 추천" />
@@ -151,8 +202,7 @@ export default function AiRecommendFormPageContent() {
 
         <div className="px-5 py-4">
           <Button
-            // onClick={() => router.push('/ai-recommend/result?' + new URLSearchParams(form as Record<string, string>).toString())}
-            onClick={() => router.push('/ai-recommend/results')}
+            onClick={() => handleRecommend()}
             disabled={!(form.cityId && form.budgetLevel && form.groupSize && form.purpose)}
           >
             AI 추천 보러가기!
