@@ -63,12 +63,14 @@ export default function Distractor({
 
   return (
     <div className="bg-nt-neutral-white mx-4 rounded-[16px] overflow-hidden transition-all duration-300">
-      <div className="flex items-center justify-between h-[66px] px-4 py-5 gap-2">
+      <div
+        onClick={() => setOpen(prev => !prev)}
+        className="flex items-center justify-between h-[66px] px-4 py-5 gap-2 cursor-pointer"
+      >
         <span className="header3">{title}</span>
         <button
           type="button"
           className="cursor-pointer hover:bg-nt-neutral-100 rounded-full w-8 h-8 flex items-center justify-center"
-          onClick={() => setOpen(prev => !prev)}
           aria-label={`${title} 선택 영역 열기`}
         >
           <ArrowDown className={cn('transition-all', open && 'rotate-180')} />
