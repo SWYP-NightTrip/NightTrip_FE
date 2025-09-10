@@ -7,6 +7,7 @@ import Button from '@/components/common/Button';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { API_URL } from '@/utils/constant/url';
+import Loading from '@/components/pages/AiRecommendPage/ui/Loading';
 
 const CityOptions = [
   { value: 'capital', label: '수도권 (서울, 인천, 경기)' },
@@ -91,7 +92,6 @@ const TravelGroupOptions = [
 
 export default function AiRecommendFormPageContent() {
   const router = useRouter();
-
   const [form, setForm] = useState({
     cityId: null as string | null,
     budgetLevel: null as string | null,
@@ -99,8 +99,10 @@ export default function AiRecommendFormPageContent() {
     groupSize: null as string | null,
     extras: '',
   });
+  const [loading, setLoading] = useState(false);
 
   const handleRecommend = async () => {
+    setLoading(true);
     try {
       const res = await fetch(`${API_URL}/recommend/sections`, {
         method: 'POST',
@@ -120,15 +122,20 @@ export default function AiRecommendFormPageContent() {
 
       if (!res.ok) {
         alert('AI 추천 요청에 실패했습니다.');
+        setLoading(false);
         return;
       }
       const result = await res.json();
-
-      sessionStorage.setItem('recommendResults', JSON.stringify(result.data));
-
-      router.push('/ai-recommend/results');
+      if (result.data && Array.isArray(result.data)) {
+        sessionStorage.setItem('recommendResults', JSON.stringify(result.data));
+        router.push('/ai-recommend/results');
+      } else {
+        alert('추천 결과가 없습니다.');
+        setLoading(false);
+      }
     } catch (error) {
       console.log('네트워크 오류가 발생했습니다.', error);
+      setLoading(false);
     }
   };
 
@@ -150,8 +157,12 @@ export default function AiRecommendFormPageContent() {
   const purposeLabel = getLabel(TravelStyleOptions, form.purpose);
   const groupSizeLabel = getLabel(TravelGroupOptions, form.groupSize);
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    <div className="flex flex-col items-center bg-nt-primary-50 min-h-screen">
+    <div className="flex flex-col items-center bg-nt-neutral-50 min-h-screen">
       <Header title="AI 추천" />
       <div>
         <div className="header4 flex px-5 gap-2 pt-[50px] pb-8 text-nt-neutral-400">

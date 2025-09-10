@@ -1,6 +1,7 @@
 'use client';
 
-import Image from 'next/image';
+import Header from '@/components/pages/AiRecommendPage/ui/Header';
+import TripCard from '@/components/pages/AiRecommendPage/AiRecommendResultPage/ui/TripCard';
 import { useEffect, useState } from 'react';
 
 interface RecommendItem {
@@ -10,13 +11,13 @@ interface RecommendItem {
   spotName: string;
   address: string;
   category: string;
-  starAvg: number;
+  starAvg: string;
   reviewCount: number;
-  imageUrl: string | null;
+  imageUrl: string;
 }
 
 export default function AiRecommendResultPageContent() {
-  const [result, setResult] = useState<RecommendItem[]>([]);
+  const [result, setResult] = useState<RecommendItem[] | null>(null);
 
   useEffect(() => {
     const data = sessionStorage.getItem('recommendResults');
@@ -26,22 +27,19 @@ export default function AiRecommendResultPageContent() {
     }
   }, []);
 
-  if (!result.length) return <div>로딩중...</div>;
+  if (result === null) return <div>Loading...</div>;
+  if (result.length === 0) return <div>결과가 없습니다.</div>;
 
   return (
     <div>
-      {result.map(item => (
-        <div key={item.id} className="mb-6 p-4 border rounded">
-          <div>순위: {item.rank}</div>
-          <div>이름: {item.spotName}</div>
-          <div>이유: {item.reason}</div>
-          <div>주소: {item.address}</div>
-          <div>카테고리: {item.category}</div>
-          <div>평점: {item.starAvg}</div>
-          <div>리뷰수: {item.reviewCount}</div>
-          {item.imageUrl && <Image src={item.imageUrl} alt={item.spotName} width={500} height={300} />}
-        </div>
-      ))}
+      <Header title='AI 추천' />
+      <div className="flex flex-wrap justify-between p-3 gap-y-6">
+        {result.map((res, idx) => (
+          <div key={res.id ?? idx} className="w-[162px] h-[218px]">
+            <TripCard tripSpot={res} className="w-full" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
