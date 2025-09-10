@@ -118,6 +118,7 @@ export default function Distractor({
                   setStep(2);
                   setSelectedSecond(null);
                 }}
+                className="bg-nt-secondary hover:bg-nt-secondary-200 active:bg-nt-secondary-600"
               >
                 다음
               </Button>
@@ -128,25 +129,33 @@ export default function Distractor({
                     setStep(1);
                     setSelectedSecond(null);
                   }}
-                  className="w-[152px]"
+                  className="w-[152px] border-1 border-nt-secondary-500 bg-nt-neutral-white hover:bg-nt-secondary-200 text-nt-secondary-500 active:bg-nt-secondary-600"
                 >
                   뒤로
                 </Button>
                 <Button
                   disabled={!selectedSecond}
                   onClick={handleSecondStepNext}
-                  className="w-[152px]"
+                  className="w-[152px] bg-nt-secondary hover:bg-nt-secondary-200 active:bg-nt-secondary-600"
                 >
                   다음
                 </Button>
               </div>
             )
           ) : firstOptions ? (
-            <Button disabled={!selectedOption} onClick={handleSingleStepNext}>
+            <Button
+              disabled={!selectedOption}
+              onClick={handleSingleStepNext}
+              className="bg-nt-secondary hover:bg-nt-secondary-200 active:bg-nt-secondary-600"
+            >
               다음
             </Button>
           ) : (
-            <Button disabled={!localInputValue} onClick={handleInputNext}>
+            <Button
+              disabled={!localInputValue}
+              onClick={handleInputNext}
+              className="bg-nt-secondary hover:bg-nt-secondary-200 active:bg-nt-secondary-600"
+            >
               다음
             </Button>
           )}
