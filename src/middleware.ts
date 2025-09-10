@@ -6,7 +6,7 @@ const AUTHENTICATED_ROUTES = ['/my'];
 const UNAUTHENTICATED_ROUTES = ['/login'];
 
 const isAuthenticatedRoute = (pathname: string) =>
-  AUTHENTICATED_ROUTES.includes(pathname) || pathname.startsWith('/my');
+  AUTHENTICATED_ROUTES.includes(pathname) || pathname.startsWith('/my') || pathname.startsWith('/ai-recommend');
 
 const isUnauthenticatedRoute = (pathname: string) => UNAUTHENTICATED_ROUTES.includes(pathname);
 
@@ -45,5 +45,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/my/:path*', '/login'],
+  matcher: ['/my/:path*', '/login', '/ai-recommend/:path*'],
 };
