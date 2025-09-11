@@ -13,6 +13,7 @@ import NightRecommendCategory from '@/components/pages/MainPage/category';
 import MainErrorBoundary from '@/components/pages/MainPage/ui/MainErrorBoundary';
 import Button from '@/components/common/Button';
 import { useRouter } from 'next/navigation';
+import AiFloatingButton from '@/components/pages/MainPage/ui/AiFloatingButton';
 
 export default function MainPageContent() {
   const router = useRouter();
@@ -58,7 +59,22 @@ export default function MainPageContent() {
       <div className="py-2.5 px-4 mt-2.5">
         <Button onClick={() => router.push('/recommend')}>더 많은 추천지 보기</Button>
       </div>
-      <div className="w-full h-[100px]"></div> {/* Footer 높이만큼 빈 공간 추가 */}
+
+      <div className="w-full h-[100px]" />
+
+      <div
+        className="
+          fixed
+          z-50
+          w-[70px]
+          h-[70px]
+          right-[calc(50%-171.5px)]
+          bottom-20
+        "
+      >
+        <AiFloatingButton />
+      </div>
+
       <Footer />
     </div>
   );
