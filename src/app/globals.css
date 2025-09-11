@@ -19,6 +19,7 @@
   --color-nt-primary-600: var(--nt-primary-600);
   --color-nt-primary-400: var(--nt-primary-400);
   --color-nt-primary-200: var(--nt-primary-200);
+  --color-nt-primary-150: var(--nt-primary-150);
   --color-nt-primary-100: var(--nt-primary-100);
   --color-nt-primary-50: var(--nt-primary-50);
 
@@ -103,6 +104,7 @@
   --nt-primary-500: #7672da;
   --nt-primary-400: #918ee1;
   --nt-primary-200: #cc87f0;
+  --nt-primary-150:#c8c7f0;
   --nt-primary-100: #e4e3f8;
   --nt-primary-50: #efeefb;
 
@@ -229,6 +231,10 @@
 
   .header4 {
     @apply font-semibold leading-[24px];
+  }
+
+  .header5 {
+    @apply !font-semibold leading-[22px];
   }
 
   .body1 {

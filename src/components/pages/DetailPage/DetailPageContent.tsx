@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
 import BackIcon from '@/icons/back.svg';
@@ -26,7 +26,10 @@ interface DetailPageContentProps {
 }
 
 export default function DetailPageContent({ id }: DetailPageContentProps) {
-  const { data: detailData } = useGetDetailSpot(id);
+  const params = useSearchParams();
+  const from = params.get('from'); // 'ai'면 AI용 API 호출
+
+  const { data: detailData } = useGetDetailSpot(id, from ?? undefined);
 
   const { toggleLike } = useLike(id);
 
