@@ -29,7 +29,7 @@ export default function OptionButtons({ options, value, onChange, className }: O
             className={cn(
               'px-3.5 py-2.5 h-[42px] rounded-[10px] header5 cursor-pointer transition-colors hover:bg-nt-neutral-100 hover:text-nt-neutral-400 text-nt-neutral-400',
               value === option.value
-                ? 'bg-[#c8c7f0] border-1 border-nt-primary-400 text-nt-neutral-white'
+                ? 'bg-nt-primary-150 border-1 border-nt-primary-400 text-nt-neutral-white'
                 : 'bg-nt-neutral-250',
             )}
           >
