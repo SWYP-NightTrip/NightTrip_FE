@@ -33,7 +33,19 @@ export interface DetailSpot {
 
 export type DetailSpotResponse = GenericAPIResponse<DetailSpot>;
 
-const requestDetailSpot = async (id: string): Promise<DetailSpotResponse> => {
+const requestDetailSpot = async (id: string, from?: string): Promise<DetailSpotResponse> => {
+  if (from === 'ai') {
+    // AI용 API 호출
+    return await requestAPI<DetailSpotResponse>({
+      url: `${API_URL}/recommend/spots/${id}`,
+      options: {
+        method: 'GET',
+        credentials: 'include',
+      },
+    });
+  }
+
+  // 기본 API 호출
   return await requestAPI<DetailSpotResponse>({
     url: `${API_URL}/touristspot/${id}`,
     options: {
@@ -44,22 +56,22 @@ const requestDetailSpot = async (id: string): Promise<DetailSpotResponse> => {
 };
 
 const keys = {
-  root: (id: string) => ['touristspot', `${id}`],
+  root: (id: string, from?: string) => ['touristspot', `${id}`, from],
 } as const;
 
 export const DetailSpotService = {
-  queryKey: (id: string) => [...keys.root(id)],
+  queryKey: (id: string, from?: string) => [...keys.root(id, from)],
   invalidate: (id: string) => {
     getQueryClient().invalidateQueries({ queryKey: DetailSpotService.queryKey(id) });
   },
-  queryOptions: (id: string) => {
+  queryOptions: (id: string, from?: string) => {
     return tsqQueryOptions<DetailSpotResponse>({
-      queryKey: DetailSpotService.queryKey(id),
-      queryFn: () => requestDetailSpot(id),
+      queryKey: DetailSpotService.queryKey(id, from),
+      queryFn: () => requestDetailSpot(id, from),
     });
   },
 };
 
-export const useGetDetailSpot = (id: string) => {
-  return useSuspenseQuery(DetailSpotService.queryOptions(id));
+export const useGetDetailSpot = (id: string, from?: string) => {
+  return useSuspenseQuery(DetailSpotService.queryOptions(id, from));
 };

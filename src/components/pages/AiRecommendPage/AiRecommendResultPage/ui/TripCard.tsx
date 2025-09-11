@@ -27,7 +27,7 @@ export default function TripCard({ tripSpot, className }: TripCardProps) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/detail/${tripSpot.id}`);
+    router.push(`/detail/${tripSpot.id}?from=ai`);
   };
 
   return (
